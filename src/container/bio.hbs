@@ -1,0 +1,162 @@
+<main>
+  <article>
+    <h1>{{name}}</h1>
+    <hr />
+    <h2>Personal information</h2>
+    <ul>
+      <li>Birthdate:
+        <time datetime='1879-03-14'>{{birthdate}}</time>
+      </li>
+      <li>Birthplace: <span>{{birthplace}}</span></li>
+      <li>
+        Deathdate:
+        <time datetime='1955-04-18'>{{deathdate}}</time>
+      </li>
+      <li>Deathplace: <span>{{deathplace}}</span></li>
+      <li>Nationality: <span>{{nationality}}</span></li>
+      <li>Occupation: <span>{{occupation}}</span></li>
+    </ul>
+    <h3>Know for</h3>
+
+    <p>{{#each known_for}}{{this}}{{#unless @last}},
+        {{/unless}}{{/each}}</p>
+
+  </article>
+
+  <hr />
+
+  <section>
+    <h3>Education</h3>
+    <ul>
+      {{#each education}}
+        <li>
+          <strong>{{degree}}</strong>
+          in
+          {{field}},
+          <em>{{institution}}</em>,
+          <time datetime='{{year}}'>{{year}}</time>
+          year.
+        </li>
+      {{/each}}
+    </ul>
+  </section>
+
+  <hr />
+
+  <article>
+    <h3>Notable publications</h3>
+    {{#each notable_publications}}
+      <h4>{{title}}</h4>
+      <ul>
+        <li>
+          <span>Publisher: {{publisher}}</span>
+        </li>
+        <li>
+          Year:
+          <time datetime='{{year}}'>{{year}}</time>
+        </li>
+        {{#unless @last}}<hr />{{/unless}}
+      </ul>
+    {{/each}}
+  </article>
+
+  <hr />
+
+  <article>
+    <h3>Partners</h3>
+    {{#each partners}}
+      <h4>{{name}}</h4>
+      <ul>
+        <li>
+          Relationship:
+          <span>{{relationship}}</span>
+        </li>
+        <li>
+          Years:
+          <time datetime='{{years}}'>{{years}}</time>
+        </li>
+        {{#unless @last}}<hr />{{/unless}}
+      </ul>
+    {{/each}}
+  </article>
+
+  <hr />
+
+  <article>
+    <h3>Awards</h3>
+    {{#each awards}}
+      <h4>
+        {{title}}
+        (<time datetime='{{year}}'>{{year}}</time>)
+      </h4>
+      <p>{{description}}</p>
+    {{/each}}
+  </article>
+
+  <hr />
+
+  <article>
+    <section>
+      <h3>Influences</h3>
+      <h4>People who made an impact</h4>
+      <ul>
+        {{#each influences}}
+          <li>{{this}}</li>
+        {{/each}}
+      </ul>
+    </section>
+    <section>
+      <h4>People influenced by</h4>
+      <ul>
+        {{#each influenced}}
+          <li>{{this}}</li>
+        {{/each}}
+      </ul>
+    </section>
+  </article>
+
+  <hr />
+
+  <article>
+    <h3>Quotes</h3>
+    {{#each quotes}}
+      <blockquote>
+        <p>{{this}}</p>
+      </blockquote>
+      {{#unless @last}}<br />{{/unless}}
+    {{/each}}
+  </article>
+
+  <hr />
+
+  <article>
+    <h3>Major discoveries</h3>
+    {{#each major_discoveries}}
+      <h4>
+        {{title}}
+        (<time datetime='{{year}}'>{{year}}</time>)
+      </h4>
+      <p>{{description}}</p>
+      {{#unless @last}}<hr />{{/unless}}
+    {{/each}}
+  </article>
+
+  <hr />
+
+  <article>
+    {{#with contributions}}
+      <h3>{{title}}</h3>
+      <p>{{description}}</p>
+      <ul>
+        <li>
+          Field:
+          <span>{{field}}</span>
+        </li>
+        <li>
+          Year:
+          <time datetime='{{year}}'>{{year}}</time>
+        </li>
+      </ul>
+    {{/with}}
+  </article>
+</main>

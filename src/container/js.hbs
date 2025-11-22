@@ -1,0 +1,117 @@
+<main>
+  <header>
+    <h1>JavaScript — Complete Reference Guide</h1>
+  </header>
+
+  <hr />
+  <br />
+
+  <article>
+    <h2>Description</h2>
+    <p>{{description}}</p>
+    <p>History: {{history.year}}</p>
+    <p>Founder: {{history.founder}}</p>
+  </article>
+
+  <hr />
+
+  <section>
+    <h2>Types</h2>
+    <br />
+    <ul>
+      {{#each types}}
+        <li>{{this}}</li>
+      {{/each}}
+    </ul>
+  </section>
+
+  <hr />
+
+  <section>
+    {{#with syntax}}
+      <h2>JavaScript Syntax Keywords</h2>
+      <br />
+      <strong>Variables</strong>
+      <ul>
+        {{#each variables}}
+          <li>{{this}}</li>
+        {{/each}}
+      </ul>
+
+      <strong>Functions</strong>
+      <ul>
+        {{#each functions}}
+          <li>{{this}}</li>
+        {{/each}}
+      </ul>
+
+      <strong>Conditionals</strong>
+      <ul>
+        {{#each conditionals}}
+          <li>{{this}}</li>
+        {{/each}}
+      </ul>
+
+      <strong>Loops</strong>
+      <ul>
+        {{#each loops}}
+          <li>{{this}}</li>
+        {{/each}}
+      </ul>
+
+      <strong>Classes</strong>
+      <ul>
+        {{#each classes}}
+          <li>{{this}}</li>
+        {{/each}}
+      </ul>
+    {{/with}}
+  </section>
+
+  <hr />
+
+  <section>
+    <h2>Features</h2>
+    <br />
+    <ul>
+      {{#each features}}
+        <li>{{this}}</li>
+      {{/each}}
+    </ul>
+  </section>
+
+  <hr />
+
+  <section>
+    <h2>Libraries</h2>
+    <br />
+    <ul>
+      {{#each libraries}}
+        <li>{{this}}</li>
+      {{/each}}
+    </ul>
+  </section>
+
+  <hr />
+
+  <section>
+    <h2>Tools</h2>
+    <br />
+    <ul>
+      {{#each tools}}
+        <li>{{this}}</li>
+      {{/each}}
+    </ul>
+  </section>
+
+  <hr />
+
+  <article>
+    <h2>Community</h2>
+    <ul>
+      {{#each community}}
+        <li>{{name}} - <a href='#'>{{type}}</a></li>
+      {{/each}}
+    </ul>
+  </article>
+</main>

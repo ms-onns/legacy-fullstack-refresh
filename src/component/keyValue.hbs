@@ -1,0 +1,32 @@
+<div class="node">
+
+  {{#unless (eq key "root")}}
+    <h3>{{key}}</h3>
+  {{/unless}}
+
+  {{#unless (isObject value)}}
+    <p>{{value}}</p>
+  {{/unless}}
+
+  {{#if (isArray value)}}
+    <ul>
+      {{#each value}}
+        <li>
+          {{> keyValue key=(concat ../key "[" @index "]") value=this }}
+        </li>
+      {{/each}}
+    </ul>
+  {{/if}}
+
+  {{#if (isObject value)}}
+    <ul>
+      {{#each value}}
+        <li>
+          <strong>{{@key}}:</strong>
+          {{> keyValue key=@key value=this}}
+        </li>
+      {{/each}}
+    </ul>
+  {{/if}}
+
+</div>

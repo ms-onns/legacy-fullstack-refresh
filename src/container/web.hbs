@@ -1,0 +1,100 @@
+<main>
+  {{#with web}}
+    <h1>Web Technology Reference Guide</h1>
+    <hr />
+
+    {{#each languages}}
+      <section>
+        <h2>{{name}} ({{version}})</h2>
+        <p><strong>Description:</strong> {{description}}</p>
+
+        <hr />
+
+        {{! =================================================================== }}
+        {{! 1. HTML SECTION (Elements & Attributes) }}
+        {{#if elements}}
+          <h3>HTML Elements</h3>
+
+          {{! List of all elements (div, p, etc.) }}
+          <ul>
+            {{#each elements}}
+              <li>
+                <h4>Tag: <code>&lt;{{name}}&gt;</code></h4>
+                <p>{{description}}</p>
+
+                {{#if attributes}}
+                  <h5>Attributes:</h5>
+                  {{! Definition List for Attributes }}
+                  <dl>
+                    {{#each attributes}}
+                      <dt><strong>{{name}}:</strong></dt>
+                      <dd>{{description}}</dd>
+                    {{/each}}
+                  </dl>
+                {{/if}}
+              </li>
+            {{/each}}
+          </ul>
+        {{/if}}
+
+        {{! =================================================================== }}
+        {{! 2. CSS SECTION (Properties & Values) }}
+        {{#if properties}}
+          <h3>CSS Properties</h3>
+
+          {{! List of all properties (color, background-color, etc.) }}
+          <ul>
+            {{#each properties}}
+              <li>
+                <h4>Property: <code>{{name}}</code></h4>
+                <p>{{description}}</p>
+
+                {{#if values}}
+                  <h5>Values:</h5>
+                  {{! Definition List for Values }}
+                  <dl>
+                    {{#each values}}
+                      <dt><strong>{{value}}:</strong></dt>
+                      <dd>{{description}}</dd>
+                    {{/each}}
+                  </dl>
+                {{/if}}
+              </li>
+            {{/each}}
+          </ul>
+        {{/if}}
+
+        {{! =================================================================== }}
+        {{! 3. JAVASCRIPT SECTION (Functions & Parameters) }}
+        {{#if functions}}
+          <h3>JavaScript Functions</h3>
+
+          {{! List of all functions (alert, getElementById, etc.) }}
+          <ul>
+            {{#each functions}}
+              <li>
+                <h4>Function: <code>{{name}}</code></h4>
+                <p>{{description}}</p>
+
+                {{#if parameters}}
+                  <h5>Parameters:</h5>
+                  {{! Definition List for Parameters }}
+                  <dl>
+                    {{#each parameters}}
+                      <dt><strong>{{name}}</strong>
+                        (Type:
+                        <code>{{type}}</code>):</dt>
+                      <dd>{{description}}</dd>
+                    {{/each}}
+                  </dl>
+                {{/if}}
+              </li>
+            {{/each}}
+          </ul>
+        {{/if}}
+      </section>
+
+      {{#unless @last}}<hr />{{/unless}}
+    {{/each}}
+  {{/with}}
+</main>

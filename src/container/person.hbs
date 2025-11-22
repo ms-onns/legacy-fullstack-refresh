@@ -1,0 +1,135 @@
+{{#with person}}
+  <main>
+    <section>
+      <h1>{{name}}</h1>
+      <hr />
+      <h2>Contact Information and Basic Data</h2>
+      <p>
+        <b>Age: {{age}}</b>
+        <br />
+        <b>Gender: {{gender}}</b>
+      </p>
+      <address>
+        <h3>Address:</h3>
+        {{address.street}},
+        {{address.city}},
+        {{address.state}},
+        {{address.zip}},
+        {{address.country}}
+      </address>
+      <hr />
+      <div>
+        <h2>Education</h2>
+        {{#each education}}
+          <article>
+            <p>
+              **Degree:**
+              <b>{{degree}}</b>
+              <br />
+              Major:
+              {{major}}
+              <br />
+              University:
+              {{university}}
+              <br />
+              Year of completion:
+              {{graduationYear}}
+            </p>
+          </article>
+        {{/each}}
+      </div>
+      <hr />
+      <div>
+        <h2>Work Experience</h2>
+        {{#each workExperience}}
+          <article>
+            <h3>{{title}} in {{company}}</h3>
+            <p>
+              **Period:**
+              {{startDate}}
+              -
+              {{endDate}}
+            </p>
+            <h4>Responsibilities:</h4>
+            <ul>
+              {{#each responsibilities}}
+                <li>{{this}}</li>
+              {{/each}}
+            </ul>
+            <br />
+            <small>
+              Founded:
+              {{year_founded}}
+              | Industry:
+              {{industry}}
+            </small>
+            <hr />
+            {{#each employees}}
+              <section>
+                <h4>Company employee: {{name}}</h4>
+                <p>Position:
+                  {{position}}
+                  | Відділ:
+                  {{department}}</p>
+                {{#each projects}}
+                  <h4>Projects:
+                    {{name}}
+                    (Status:
+                    {{status}})</h4>
+                  <p>Description: {{description}}</p>
+                  {{#each teams}}
+                    <h5>Teams: {{team_name}}</h5>
+                    {{#with team_leader}}
+                      <p>
+                        **Team Leader:**
+                        {{name}}
+                        ({{title}})
+                        <br />
+                        Email:
+                        {{email}}
+                      </p>
+                    {{/with}}
+                    <div>
+                      <h5>Team members:</h5>
+                      <ul>
+                        {{#each team_members}}
+                          <li>
+                            **{{name}}** ({{title}})
+                            <br />
+                            Contact:
+                            {{email}}
+                            {{#if skills}}
+                              <p>
+                                Skills:
+                                {{skills}}
+                              </p>
+                            {{/if}}
+                            {{#each projects}}
+                              <h5>Team member project:
+                                {{name}}</h5>
+                              <p>Description:
+                                {{description}}</p>
+                              <p>Technologies:
+                                {{technologies}}</p>
+                              <p>Project team members:</p>
+                              <ul>
+                                {{#each team_members}}
+                                  <li>{{name}}
+                                    ({{title}})</li>
+                                {{/each}}
+                              </ul>
+                            {{/each}}
+                          </li>
+                        {{/each}}
+                      </ul>
+                    </div>
+                  {{/each}}
+                {{/each}}
+              </section>
+            {{/each}}
+          </article>
+        {{/each}}
+      </div>
+    </section>
+  </main>
+{{/with}}

@@ -1,0 +1,103 @@
+<main>
+  <header>
+    <strong>{{category}}</strong>
+    <br />
+    <br />
+    <h1>Apple MacBook Pro</h1>
+    <p>{{description}}</p>
+    <p>Price {{price}}</p>
+  </header>
+  <hr />
+  <section>
+    <h2>Features</h2>
+    <br />
+    {{#with features}}
+      <strong>Processor</strong>
+      <ul>
+        <li>Brand - {{processor.brand}}</li>
+        <li>Model - {{processor.model}}</li>
+        <li>Speed - {{processor.speed}}</li>
+        <li>Cores - {{processor.cores}}</li>
+        <li>Cache - {{processor.cache}}</li>
+      </ul>
+
+      <strong>Memory</strong>
+      <ul>
+        <li>Type - {{memory.type}}</li>
+        <li>Size - {{memory.size}}</li>
+        <li>Speed - {{memory.speed}}</li>
+      </ul>
+
+      <strong>Storage</strong>
+      <ul>
+        <li>type - {{storage.type}}</li>
+        <li>Size - {{storage.size}}</li>
+      </ul>
+
+      <strong>Display</strong>
+      <ul>
+        <li>Size - {{display.size}}</li>
+        <li>Resolution - {{display.resolution}}</li>
+        <li>Technology - {{display.technology}}</li>
+        <li>Color_space - {{display.color_space}}</li>
+        <li>Brightness - {{display.brightness}}</li>
+        <li>Refresh rate - {{display.refresh_rate}}</li>
+      </ul>
+
+      <strong>Graphics</strong>
+      <ul>
+        <li>Brand - {{graphics.brand}}</li>
+        <li>Model - {{graphics.model}}</li>
+        <li>Memory - {{graphics.memory}}</li>
+      </ul>
+
+      <strong>Ports</strong>
+      {{#each ports}}
+        <ul>
+          <li>Type - {{type}} (x{{count}})</li>
+
+          {{#if features}}
+            <li>Features:</li>
+            <ul>
+              {{#each features}}
+                <li>{{this}}</li>
+              {{/each}}
+            </ul>
+          {{/if}}
+        </ul>
+      {{/each}}
+
+      <strong>Battery</strong>
+      <ul>
+        <li>Type - {{battery.type}}</li>
+        <li>Capacity - {{battery.capacity}}</li>
+        <li>Life - {{battery.life}}</li>
+      </ul>
+
+      <strong>Weight</strong>
+      <ul>
+        <li>{{weight}}</li>
+      </ul>
+
+      <strong>Dimensions</strong>
+      <ul>
+        <li>Height - {{dimensions.height}}</li>
+        <li>Width - {{dimensions.width}}</li>
+        <li>Depth - {{dimensions.depth}}</li>
+      </ul>
+
+      <strong>Operating system</strong>
+      <ul>
+        <li>{{operating_system}}</li>
+      </ul>
+
+      <strong>Accessories</strong>
+      {{#each accessories}}
+        <ul>
+          <li>{{name}} <br /><b>${{price}}</b></li>
+        </ul>
+      {{/each}}
+
+    {{/with}}
+  </section>
+</main>

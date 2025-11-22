@@ -1,0 +1,122 @@
+<main>
+  <section>
+    <h1>Tour Program: {{program.excursion.name}}</h1>
+
+    <p>
+      <strong>Destination: </strong>
+      {{program.excursion.location.city}},
+      {{program.excursion.location.country}}
+    </p>
+
+    <p>
+      <strong>Date:</strong>
+      <time datetime='{{program.excursion.date}}'>
+        {{program.excursion.date}}
+      </time>
+    </p>
+
+    <hr />
+
+    <h2>Detailed Activity Plan</h2>
+
+    {{#each program.excursion.program}}
+      <article>
+
+        <h3>{{name}} (Type: {{type}})</h3>
+
+        <p>
+          <strong>Duration:</strong>
+          {{duration}}
+          hours.
+        </p>
+
+        {{#if details.museum}}
+          <section>
+            <h4>Museum details ({{details.museum.name}})</h4>
+
+            <p>
+              <strong>Address:</strong>
+              {{details.museum.location.address}},
+              {{details.museum.location.city}},
+              {{details.museum.location.country}}
+            </p>
+
+            <p>
+              <strong>Guide:</strong>
+              {{details.guide.name}}
+              (Language:
+              {{details.guide.language}}, Rating:
+              {{details.guide.rating}})
+            </p>
+
+            <h5>Key Exhibits</h5>
+
+            <ul>
+              {{#each details.museum.exhibits}}
+                <li>
+                  <p>
+                    <strong>Name:</strong>
+                    {{name}}
+                    {{#if artist}}
+                      (Author:
+                      {{artist}})
+                    {{/if}}
+                  </p>
+
+                  <p>
+                    <strong>Description:</strong>
+                    {{description}}
+                  </p>
+
+                  <p>
+                    <strong>Audio guide:</strong>
+                    {{#if audio_guide}}
+                      Present
+                    {{else}}
+                      Not available
+                    {{/if}}
+                  </p>
+                </li>
+              {{/each}}
+            </ul>
+          </section>
+        {{/if}}
+
+        {{#if details.venue}}
+          <section>
+            <h4>Details Places ({{details.venue.name}})</h4>
+
+            <p>
+              <strong>Address:</strong>
+              {{details.venue.location.address}},
+              {{details.venue.location.city}},
+              {{details.venue.location.country}}
+            </p>
+
+            <p>
+              <strong>Guide:</strong>
+              {{details.guide.name}}
+              (Language:
+              {{details.guide.language}}, Rating:
+              {{details.guide.rating}})
+            </p>
+
+            <h5>List of Performers</h5>
+
+            <ul>
+              {{#each details.performers}}
+                <li>
+                  <strong>Name:</strong>
+                  {{name}}
+                  (Type:
+                  {{type}})
+                </li>
+              {{/each}}
+            </ul>
+          </section>
+        {{/if}}
+      </article>
+      <hr />
+    {{/each}}
+  </section>
+</main>
