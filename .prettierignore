@@ -3,3 +3,4 @@ dist
 public/app.js
 public/index.js
 .eslintrc.backup.json
+*.hbs
