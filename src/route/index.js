@@ -160,7 +160,6 @@ router.get('/education', function (req, res) {
   //             ↙ cюди вводимо назву файлу з сontainer
   res.render('education', {
     // ↙ сюди вводимо JSON дані
-
     page: {
       title: 'Resume | Education',
     },
@@ -205,9 +204,6 @@ router.get('/work', function (req, res) {
   //             ↙ cюди вводимо назву файлу з сontainer
   res.render('work', {
     // ↙ сюди вводимо JSON дані
-
-    layout: 'big',
-
     page: {
       title: 'Resume | Work',
     },
@@ -286,8 +282,7 @@ router.get('/work', function (req, res) {
 router.get('/person', function (req, res) {
   //             ↙ cюди вводимо назву файлу з сontainer
   res.render('person', {
-    layout: 'person',
-
+    // ↙ сюди вводимо JSON дані
     person: {
       name: 'Emma Johnson',
       age: 32,
@@ -388,8 +383,7 @@ router.get('/person', function (req, res) {
 router.get('/bio', function (req, res) {
   //             ↙ cюди вводимо назву файлу з сontainer
   res.render('bio', {
-    layout: 'bio',
-
+    // ↙ сюди вводимо JSON дані
     name: 'Albert Einstein',
     birthdate: 'March 14, 1879',
     birthplace:
@@ -486,8 +480,7 @@ router.get('/bio', function (req, res) {
 router.get('/program', function (req, res) {
   //             ↙ cюди вводимо назву файлу з сontainer
   res.render('program', {
-    layout: 'program',
-
+    // ↙ сюди вводимо JSON дані
     program: {
       excursion: {
         name: 'Cultural Tour',
@@ -573,8 +566,7 @@ router.get('/program', function (req, res) {
 router.get('/web', function (req, res) {
   //             ↙ cюди вводимо назву файлу з сontainer
   res.render('web', {
-    layout: 'web',
-
+    // ↙ сюди вводимо JSON дані
     web: {
       languages: [
         {
@@ -703,12 +695,9 @@ router.get('/web', function (req, res) {
 
 router.get('/js', function (req, res) {
   // res.render генерує нам HTML сторінку
-
-  //            ↙ cюди вводимо назву файлу з сontainer
   res.render('js', {
+    // ↙ сюди вводимо JSON дані
     name: 'JavaScript',
-    layout: 'js',
-
     description:
       'JavaScript is a popular high-level, dynamic, and interpreted programming language.',
     history: {
@@ -787,11 +776,8 @@ router.get('/js', function (req, res) {
 
 router.get('/car', function (req, res) {
   // res.render генерує нам HTML сторінку
-
-  //            ↙ cюди вводимо назву файлу з сontainer
   res.render('car', {
-    layout: 'car',
-
+    // ↙ сюди вводимо JSON дані
     make: 'Toyota',
     model: 'Camry',
     year: 2022,
@@ -890,12 +876,9 @@ router.get('/car', function (req, res) {
 
 router.get('/mac', function (req, res) {
   // res.render генерує нам HTML сторінку
-
-  //            ↙ cюди вводимо назву файлу з сontainer
   res.render('mac', {
+    // ↙ сюди вводимо JSON дані
     name: 'Apple MacBook Pro',
-    layout: 'mac',
-
     description: 'The ultimate notebook for power users',
     price: 1999.99,
     category: 'Computers & Tablets',
@@ -981,12 +964,9 @@ router.get('/mac', function (req, res) {
 
 router.get('/facebook', function (req, res) {
   // res.render генерує нам HTML сторінку
-
-  //            ↙ cюди вводимо назву файлу з сontainer
   res.render('facebook', {
+    // ↙ сюди вводимо JSON дані
     name: 'Facebook',
-    layout: 'facebook',
-
     users: [
       {
         id: 1,
