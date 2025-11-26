@@ -1,81 +1,78 @@
-const createError = require('http-errors')
-const express = require('express')
-const path = require('path')
-const cookieParser = require('cookie-parser')
-const logger = require('morgan')
-const dotenv = require('dotenv')
+const express = require('express');
+const path = require('path');
+const morgan = require('morgan');
+const cookieParser = require('cookie-parser');
+const createError = require('http-errors');
+const dotenv = require('dotenv');
 
-dotenv.config()
+dotenv.config();
 
-const app = express()
+const app = express();
 
-const handlebars = require('express-handlebars')
-// =======================================================================
+// ================= HANDLBARS ==================
+
+const handlebars = require('express-handlebars');
 const hbs = handlebars.create({
   extname: 'hbs',
   defaultLayout: 'default',
-  layoutsDir: __dirname + '/src/layout/',
-  partialsDir: __dirname + '/src/component/',
-})
+  layoutsDir: path.join(__dirname, 'src/layout'),
+  partialsDir: path.join(__dirname, 'src/component'),
+  helpers: {
+    isObject: (value) => typeof value === 'object' && value !== null,
+    isArray: Array.isArray,
+    eq: (a, b) => a === b,
+    concat: (a, b) => `${a}${b}`,
+  },
+});
 
-hbs.handlebars.registerHelper('isObject', function (value) {
-  return typeof value === 'object' && value !== null
-})
+app.engine('hbs', hbs.engine);
+app.set('view engine', 'hbs');
+app.set('views', path.join(__dirname, 'src/container'));
 
-hbs.handlebars.registerHelper('eq', function (a, b) {
-  return a === b
-})
+// =================================================
 
-hbs.handlebars.registerHelper('isArray', function (value) {
-  return Array.isArray(value)
-})
+// CORE MIDDLEWARE
+app.use(morgan('dev'));
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+app.use(cookieParser());
 
-hbs.handlebars.registerHelper('concat', function (a, b) {
-  return a + b
-})
+// STATIC FILES
+app.use(express.static(path.join(__dirname, 'public')));
 
-app.engine('hbs', hbs.engine)
-app.set('view engine', 'hbs')
-app.set('views', 'src/container')
-// =======================================================================
-app.use(logger('dev'))
-app.use(express.json())
-app.use(express.urlencoded({ extended: false }))
-app.use(cookieParser())
-app.use(express.static(path.join(__dirname, 'public')))
-
+// LIVE RELOAD (DEV ONLY)
 if (process.env.NODE_ENV === 'development') {
-  const livereload = require('livereload')
-  const connectLiveReload = require('connect-livereload')
+  const livereload = require('livereload');
+  const connectLiveReload = require('connect-livereload');
 
-  const liveReloadServer = livereload.createServer()
-  liveReloadServer.watch(path.join(__dirname, 'public'))
+  const liveReloadServer = livereload.createServer();
+  liveReloadServer.watch(path.join(__dirname, 'public'));
+
   liveReloadServer.server.once('connection', () => {
-    setTimeout(() => {
-      liveReloadServer.refresh('/')
-    }, 100)
-  })
-  app.use(connectLiveReload())
+    setTimeout(() => liveReloadServer.refresh('/'), 100);
+  });
+
+  app.use(connectLiveReload());
 }
 
-const route = require('./src/route/index.js')
+// ROUTES
+const router = require('./src/route/index.js');
+app.use('/', router);
 
-app.use('/', route)
-// catch 404 and forward to error handler
+// 404
 app.use((req, res, next) => {
-  next(createError(404))
-})
+  next(createError(404, 'Page not found'));
+});
 
-// error handler
+// ERROR HANDLER
 app.use((err, req, res, next) => {
-  // set locals, only providing error in development
-  res.locals.message = err.message
-  res.locals.error =
-    req.app.get('env') === 'development' ? err : {}
+  const isDev = req.app.get('env') === 'development';
 
-  // render the error page
-  res.status(err.status || 500)
-  res.render('error', { message: err })
-})
+  res.status(err.status || 500);
+  res.render('error', {
+    message: err.message,
+    error: isDev ? err : {},
+  });
+});
 
-module.exports = app
+module.exports = app;
