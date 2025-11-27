@@ -298,8 +298,7 @@ router.get('/person', function (req, res) {
         {
           degree: 'Bachelor of Science',
           major: 'Computer Science',
-          university:
-            'Massachusetts Institute of Technology',
+          university: 'Massachusetts Institute of Technology',
           graduationYear: 2012,
         },
       ],
@@ -323,8 +322,7 @@ router.get('/person', function (req, res) {
               projects: [
                 {
                   name: 'Project Alpha',
-                  description:
-                    'Developing new software platform',
+                  description: 'Developing new software platform',
                   status: 'In Progress',
                   teams: [
                     {
@@ -338,23 +336,17 @@ router.get('/person', function (req, res) {
                         {
                           name: 'Alice Johnson',
                           title: 'Software Engineer',
-                          email:
-                            'alice.johnson@example.com',
+                          email: 'alice.johnson@example.com',
                           skills: ['Java', 'Python', 'SQL'],
                           projects: [
                             {
                               name: 'Project A',
-                              description:
-                                'Lorem ipsum dolor sit amet',
-                              technologies: [
-                                'Java',
-                                'Spring Framework',
-                              ],
+                              description: 'Lorem ipsum dolor sit amet',
+                              technologies: ['Java', 'Spring Framework'],
                               team_members: [
                                 {
                                   name: 'Bob Lee',
-                                  title:
-                                    'Software Engineer',
+                                  title: 'Software Engineer',
                                 },
                                 {
                                   name: 'Cindy Chen',
@@ -386,8 +378,7 @@ router.get('/bio', function (req, res) {
     // ↙ сюди вводимо JSON дані
     name: 'Albert Einstein',
     birthdate: 'March 14, 1879',
-    birthplace:
-      'Ulm, Kingdom of Württemberg, German Empire',
+    birthplace: 'Ulm, Kingdom of Württemberg, German Empire',
     deathdate: 'April 18, 1955',
     deathplace: 'Princeton, New Jersey, United States',
     nationality: 'Swiss, German, American',
@@ -413,8 +404,7 @@ router.get('/bio', function (req, res) {
         publisher: 'Annalen der Physik',
       },
       {
-        title:
-          'Does the Inertia of a Body Depend Upon Its Energy Content?',
+        title: 'Does the Inertia of a Body Depend Upon Its Energy Content?',
         year: 1905,
         publisher: 'Annalen der Physik',
       },
@@ -427,8 +417,7 @@ router.get('/bio', function (req, res) {
       },
       {
         name: 'Elsa Einstein',
-        relationship:
-          "Second wife, also Einstein's first cousin",
+        relationship: "Second wife, also Einstein's first cousin",
         years: '1919-1936',
       },
     ],
@@ -436,15 +425,10 @@ router.get('/bio', function (req, res) {
       {
         title: 'Nobel Prize in Physics',
         year: 1921,
-        description:
-          'Awarded for his explanation of the photoelectric effect',
+        description: 'Awarded for his explanation of the photoelectric effect',
       },
     ],
-    influences: [
-      'Isaac Newton',
-      'James Clerk Maxwell',
-      'Hermann Minkowski',
-    ],
+    influences: ['Isaac Newton', 'James Clerk Maxwell', 'Hermann Minkowski'],
     influenced: [
       'Niels Bohr',
       'Erwin Schrödinger',
@@ -582,8 +566,7 @@ router.get('/web', function (req, res) {
               attributes: [
                 {
                   name: 'id',
-                  description:
-                    'Specifies a unique id for an HTML element.',
+                  description: 'Specifies a unique id for an HTML element.',
                 },
                 {
                   name: 'class',
@@ -594,13 +577,11 @@ router.get('/web', function (req, res) {
             },
             {
               name: 'p',
-              description:
-                'Defines a paragraph in an HTML document.',
+              description: 'Defines a paragraph in an HTML document.',
               attributes: [
                 {
                   name: 'id',
-                  description:
-                    'Specifies a unique id for an HTML element.',
+                  description: 'Specifies a unique id for an HTML element.',
                 },
                 {
                   name: 'class',
@@ -623,30 +604,25 @@ router.get('/web', function (req, res) {
               values: [
                 {
                   value: 'red',
-                  description:
-                    'Sets the text color to red.',
+                  description: 'Sets the text color to red.',
                 },
                 {
                   value: 'blue',
-                  description:
-                    'Sets the text color to blue.',
+                  description: 'Sets the text color to blue.',
                 },
               ],
             },
             {
               name: 'background-color',
-              description:
-                'Sets the background color of an element.',
+              description: 'Sets the background color of an element.',
               values: [
                 {
                   value: 'white',
-                  description:
-                    'Sets the background color to white.',
+                  description: 'Sets the background color to white.',
                 },
                 {
                   value: 'black',
-                  description:
-                    'Sets the background color to black.',
+                  description: 'Sets the background color to black.',
                 },
               ],
             },
@@ -666,21 +642,18 @@ router.get('/web', function (req, res) {
                 {
                   name: 'message',
                   type: 'string',
-                  description:
-                    'The message to display in the alert box.',
+                  description: 'The message to display in the alert box.',
                 },
               ],
             },
             {
               name: 'getElementById()',
-              description:
-                'Returns the element with the specified ID.',
+              description: 'Returns the element with the specified ID.',
               parameters: [
                 {
                   name: 'id',
                   type: 'string',
-                  description:
-                    'The ID of the element to find.',
+                  description: 'The ID of the element to find.',
                 },
               ],
             },
@@ -1091,8 +1064,7 @@ router.get('/facebook', function (req, res) {
               {
                 id: 4,
                 name: 'Pet Lovers',
-                description:
-                  'A group for people who love their furry friends',
+                description: 'A group for people who love their furry friends',
                 members: [
                   {
                     id: 16,

@@ -1,6 +1,11 @@
-node_modules
-dist
+# Папки
+node_modules/
+dist/
+public/dist/
+
+# Згенеровані файли
 public/app.js
 public/index.js
-.eslintrc.backup.json
-*.hbs
+
+# Ігноримо hbs-файли (Преттір не вміє форматувати їх коректно)
+**/*.hbs
