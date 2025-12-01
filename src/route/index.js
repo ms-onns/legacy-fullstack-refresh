@@ -1,22 +1,23 @@
-// Підключаємо технологію express для back-end сервера
+// ----------------------------------------
+//  IMPORTS
+// ----------------------------------------
 const express = require('express')
-// Cтворюємо роутер - місце, куди ми підключаємо ендпоїнти
 const router = express.Router()
 
-// ================================================================
-
-var header = {
+// ----------------------------------------
+//  COMMON DATA (header + footer)
+// ----------------------------------------
+const header = {
   name: {
     firstname: 'Maxim',
     lastname: 'Sheyn',
   },
-
   position: 'Junior Fullstack JS Developer',
   salary: '900$ в місяць',
   address: 'Ukraine, Kharkiv',
 }
 
-var footer = {
+const footer = {
   sotial: {
     email: {
       text: 'dmytro@mail.com',
@@ -26,7 +27,6 @@ var footer = {
       text: '+380670000123',
       href: 'tel:+380670000123',
     },
-
     linkedin: {
       text: 'LinkedIn',
       href: 'https://www.linkedin.com/in/dmytro-test',
@@ -34,186 +34,92 @@ var footer = {
   },
 }
 
-// ================================================================
-
-// router.get Створює нам один ентпоїнт
-
-//           ↙ тут вводимо шлях (PATH) до сторінки
-router.get('/', function (req, res) {
-  // res.render генерує нам HTML сторінку
-
-  //            ↙ cюди вводимо назву файлу з сontainer
+// ----------------------------------------
+//  INDEX PAGE
+// ----------------------------------------
+router.get('/', (req, res) => {
   res.render('index', {})
-  //                  ↑↑ сюди вводимо JSON дані
 })
 
-// ================================================================
-
-//              ↙ тут вводимо шлях (PATH) до сторінки
-router.get('/summary', function (req, res) {
-  //             ↙ cюди вводимо назву файлу з сontainer
+// ----------------------------------------
+//  SUMMARY
+// ----------------------------------------
+router.get('/summary', (req, res) => {
   res.render('summary', {
-    // ↙ сюди вводимо JSON дані
-
-    page: {
-      title: 'Resume | Summary',
-    },
-
+    page: { title: 'Resume | Summary' },
     header,
-
     main: {
       summary: {
         title: 'Summary',
-        text: `Open-minded for new technologies, with 1 years of
-          experience in development. Whenever I start to
-          work on a new project I learn the domain and try
-          to understand the idea of the project. Good team
-          player, every colleague is a friend to me.`,
+        text: `Open-minded for new technologies, with 1 year of experience in development.
+        Whenever I start to work on a new project I learn the domain and try to understand the idea.
+        Good team player, every colleague is a friend to me.`,
       },
-
       experience: {
         title: 'Other experience',
-        text: `Pet project for parsing sport betting data from
-          different platforms ( odds ) and sport statistics
-          ( tournament position, goals etc), analyzing by
-          simple mathematics models and preparing
-          probability for such events like: money line -
-          first win / draw / second win, totals etc.`,
+        text: `Pet project for parsing sport betting data from different platforms,
+        analyzing by mathematical models and preparing probability predictions.`,
       },
     },
-
     footer,
   })
 })
 
-// ================================================================
-
-//              ↙ тут вводимо шлях (PATH) до сторінки
-router.get('/skills', function (req, res) {
-  //             ↙ cюди вводимо назву файлу з сontainer
+// ----------------------------------------
+//  SKILLS
+// ----------------------------------------
+router.get('/skills', (req, res) => {
   res.render('skills', {
-    // ↙ сюди вводимо JSON дані
-
-    page: {
-      title: 'Resume | Skills',
-    },
-
+    page: { title: 'Resume | Skills' },
     header,
-
     main: {
       skills: [
-        {
-          name: 'HTML',
-          point: 10,
-          isTop: true,
-        },
-        {
-          name: 'Handlebars',
-          point: 10,
-          isTop: true,
-        },
-        {
-          name: 'VS Code & NPM',
-          point: 9,
-          isTop: false,
-        },
-        {
-          name: 'Git & Terminal',
-          point: 7,
-          isTop: false,
-        },
-        {
-          name: 'React.js',
-          point: 0,
-          isTop: false,
-        },
-        {
-          name: 'PHP',
-          point: null,
-        },
+        { name: 'HTML', point: 10, isTop: true },
+        { name: 'Handlebars', point: 10, isTop: true },
+        { name: 'VS Code & NPM', point: 9, isTop: false },
+        { name: 'Git & Terminal', point: 7, isTop: false },
+        { name: 'React.js', point: 0, isTop: false },
+        { name: 'PHP', point: null },
       ],
-
       hobbies: [
-        {
-          name: 'Cycling',
-          isMain: true,
-        },
-        {
-          name: 'Swiming',
-          isMain: false,
-        },
-        {
-          name: 'Cooking',
-          isMain: false,
-        },
+        { name: 'Cycling', isMain: true },
+        { name: 'Swiming', isMain: false },
+        { name: 'Cooking', isMain: false },
       ],
     },
-
     footer,
   })
 })
 
-// ================================================================
-
-//              ↙ тут вводимо шлях (PATH) до сторінки
-router.get('/education', function (req, res) {
-  //             ↙ cюди вводимо назву файлу з сontainer
+// ----------------------------------------
+//  EDUCATION
+// ----------------------------------------
+router.get('/education', (req, res) => {
   res.render('education', {
-    // ↙ сюди вводимо JSON дані
-
-    page: {
-      title: 'Resume | Education',
-    },
-
+    page: { title: 'Resume | Education' },
     header,
-
     main: {
       educations: [
-        {
-          name: 'IT Brains',
-          isEnd: false,
-        },
-        {
-          name: 'HPLM',
-          isEnd: true,
-        },
-        {
-          name: 'freeCodeCampe',
-          isEnd: true,
-        },
+        { name: 'IT Brains', isEnd: false },
+        { name: 'HPLM', isEnd: true },
+        { name: 'freeCodeCampe', isEnd: true },
       ],
-
       certificates: [
-        {
-          name: 'IT Brains',
-          id: 1,
-        },
-        {
-          name: 'HPLM',
-          id: 2,
-        },
+        { name: 'IT Brains', id: 1 },
+        { name: 'HPLM', id: 2 },
       ],
     },
     footer,
   })
 })
 
-// ================================================================
-
-//              ↙ тут вводимо шлях (PATH) до сторінки
-router.get('/work', function (req, res) {
-  //             ↙ cюди вводимо назву файлу з сontainer
+// ----------------------------------------
+//  WORK
+// ----------------------------------------
+router.get('/work', (req, res) => {
   res.render('work', {
-    // ↙ сюди вводимо JSON дані
-
-    layout: 'big',
-
-    page: {
-      title: 'Resume | Work',
-    },
-
+    page: { title: 'Resume | Work' },
     header,
-
     main: {
       works: [
         {
@@ -224,52 +130,33 @@ router.get('/work', function (req, res) {
           },
           duration: {
             from: '10.10.2023',
-            too: null,
+            to: null,
           },
-          projectAmount: 3,
+          projectAmount: 1,
 
           projects: [
             {
               name: 'Resume',
               url: 'https://resume.com.ua/',
               about: `
-                A dynamic resume web application built to showcase Full-Stack development skills.
-                It is powered by Node.js/Express.js for server-side logic and leverages Handlebars.js for template rendering.
-                The project effectively uses Handlebars Partials for component reusability and separation of data from the presentation layer, ensuring high scalability.`,
-
+                Resume web app using Node.js, Express.js and Handlebars.
+                Includes reusable components, layouts and dynamic data binding.`,
               stackAmount: 4,
-              awardAmount: 6,
+              awardAmount: 5,
 
               stacks: [
-                {
-                  name: 'React.js',
-                },
-                {
-                  name: 'HTML / CSS',
-                },
-                {
-                  name: 'Node.js',
-                },
-                {
-                  name: 'Express.js',
-                },
+                { name: 'React.js' },
+                { name: 'HTML / CSS' },
+                { name: 'Node.js' },
+                { name: 'Express.js' },
               ],
-              awords: [
-                {
-                  name: 'The implementation of this feature resulted in a 15% increase in page rendering speed.',
-                },
-                {
-                  name: 'Developed reusable Handlebars components, reducing the development time for new sections by 20%.',
-                },
-                {
-                  name: 'Designed a responsive layout, ensuring a flawless display of the project across mobile and desktop devices.',
-                },
-                {
-                  name: 'Successfully integrated an API for dynamic resume data updates without requiring a page reload.',
-                },
-                {
-                  name: 'The project passed a code cleanliness audit, confirming adherence to ES6 standards and best practices.',
-                },
+
+              awards: [
+                { name: '15% increase in rendering speed' },
+                { name: '20% faster development thanks to components' },
+                { name: 'Responsive UI for all devices' },
+                { name: 'Dynamic data without reload' },
+                { name: 'Code audit passed (ES6 standard)' },
               ],
             },
           ],
@@ -280,13 +167,12 @@ router.get('/work', function (req, res) {
   })
 })
 
-// ================================================================
-
-//              ↙ тут вводимо шлях (PATH) до сторінки
+// ----------------------------------------
+//  PERSON
+// ----------------------------------------
 router.get('/person', function (req, res) {
-  //             ↙ cюди вводимо назву файлу з сontainer
   res.render('person', {
-    layout: 'person',
+    page: { title: 'Person profile' },
 
     person: {
       name: 'Emma Johnson',
@@ -299,72 +185,69 @@ router.get('/person', function (req, res) {
         zip: '10001',
         country: 'USA',
       },
+
       education: [
         {
           degree: 'Bachelor of Science',
           major: 'Computer Science',
-          university:
-            'Massachusetts Institute of Technology',
+          university: 'Massachusetts Institute of Technology',
           graduationYear: 2012,
         },
       ],
+
       workExperience: [
         {
           company: 'Google',
           title: 'Software Engineer',
           startDate: '2012-06-01',
           endDate: '2016-12-31',
+
           responsibilities: [
             'Developed new features for Google Maps',
             'Worked on improving search algorithms',
           ],
+
           year_founded: 1990,
           industry: 'Technology',
+
           employees: [
             {
               name: 'John Smith',
               position: 'CEO',
               department: 'Executive',
+
               projects: [
                 {
                   name: 'Project Alpha',
-                  description:
-                    'Developing new software platform',
+                  description: 'Developing new software platform',
                   status: 'In Progress',
+
                   teams: [
                     {
                       team_name: 'Awesome Team',
+
                       team_leader: {
                         name: 'John Smith',
                         title: 'Team Leader',
                         email: 'john.smith@example.com',
                       },
+
                       team_members: [
                         {
                           name: 'Alice Johnson',
                           title: 'Software Engineer',
-                          email:
-                            'alice.johnson@example.com',
+                          email: 'alice.johnson@example.com',
                           skills: ['Java', 'Python', 'SQL'],
+
                           projects: [
                             {
                               name: 'Project A',
-                              description:
-                                'Lorem ipsum dolor sit amet',
-                              technologies: [
-                                'Java',
-                                'Spring Framework',
-                              ],
+                              description: 'Lorem ipsum dolor sit amet',
+                              technologies: ['Java', 'Spring Framework'],
+
                               team_members: [
-                                {
-                                  name: 'Bob Lee',
-                                  title:
-                                    'Software Engineer',
-                                },
-                                {
-                                  name: 'Cindy Chen',
-                                  title: 'UI Designer',
-                                },
+                                { name: 'Bob Lee', title: 'Software Engineer' },
+                                { name: 'Cindy Chen', title: 'UI Designer' },
                               ],
                             },
                           ],
@@ -382,112 +265,112 @@ router.get('/person', function (req, res) {
   })
 })
 
-// ================================================================
-
-//              ↙ тут вводимо шлях (PATH) до сторінки
+// ----------------------------------------
+// BIO
+// ----------------------------------------
 router.get('/bio', function (req, res) {
-  //             ↙ cюди вводимо назву файлу з сontainer
   res.render('bio', {
-    layout: 'bio',
+    page: { title: 'Biography' },
 
-    name: 'Albert Einstein',
-    birthdate: 'March 14, 1879',
-    birthplace:
-      'Ulm, Kingdom of Württemberg, German Empire',
-    deathdate: 'April 18, 1955',
-    deathplace: 'Princeton, New Jersey, United States',
-    nationality: 'Swiss, German, American',
-    occupation: 'Theoretical Physicist',
-    known_for: [
-      'Theory of Relativity',
-      'E=mc²',
-      'Photoelectric Effect',
-      'Brownian Motion',
-    ],
-    education: [
-      {
-        degree: 'Doctor of Philosophy',
+    bio: {
+      name: 'Albert Einstein',
+      birthdate: '1879-03-14',
+      birthplace: 'Ulm, Kingdom of Württemberg, German Empire',
+      deathdate: '1955-04-18',
+      deathplace: 'Princeton, New Jersey, United States',
+      nationality: 'Swiss, German, American',
+      occupation: 'Theoretical Physicist',
+
+      known_for: [
+        'Theory of Relativity',
+        'E=mc²',
+        'Photoelectric Effect',
+        'Brownian Motion',
+      ],
+
+      education: [
+        {
+          degree: 'Doctor of Philosophy',
+          field: 'Physics',
+          institution: 'University of Zurich',
+          year: 1905,
+        },
+      ],
+
+      notable_publications: [
+        {
+          title: 'On the Electrodynamics of Moving Bodies',
+          year: 1905,
+          publisher: 'Annalen der Physik',
+        },
+        {
+          title: 'Does the Inertia of a Body Depend Upon Its Energy Content?',
+          year: 1905,
+          publisher: 'Annalen der Physik',
+        },
+      ],
+
+      partners: [
+        {
+          name: 'Mileva Marić',
+          relationship: 'First wife',
+          years: '1903-1919',
+        },
+        {
+          name: 'Elsa Einstein',
+          relationship: "Second wife, Einstein's cousin",
+          years: '1919-1936',
+        },
+      ],
+
+      awards: [
+        {
+          title: 'Nobel Prize in Physics',
+          year: 1921,
+          description: 'Awarded for explanation of the photoelectric effect',
+        },
+      ],
+
+      influences: ['Isaac Newton', 'James Clerk Maxwell', 'Hermann Minkowski'],
+      influenced: [
+        'Niels Bohr',
+        'Erwin Schrödinger',
+        'Werner Heisenberg',
+        'Richard Feynman',
+      ],
+
+      quotes: [
+        'Imagination is more important than knowledge.',
+        'I have no special talent. I am only passionately curious.',
+        'The important thing is not to stop questioning.',
+        'The most beautiful thing we can experience is the mysterious.',
+      ],
+
+      major_discoveries: [
+        {
+          title: 'Photoelectric Effect',
+          year: 1905,
+          description:
+            'Explained electron emission from metal when illuminated by light.',
+        },
+      ],
+
+      contributions: {
+        title: 'Inventions',
+        description:
+          'Einstein contributed to scientific thought and a wide variety of advancements.',
+        year: '1900–1950',
         field: 'Physics',
-        institution: 'University of Zurich',
-        year: 1905,
       },
-    ],
-    notable_publications: [
-      {
-        title: 'On the Electrodynamics of Moving Bodies',
-        year: 1905,
-        publisher: 'Annalen der Physik',
-      },
-      {
-        title:
-          'Does the Inertia of a Body Depend Upon Its Energy Content?',
-        year: 1905,
-        publisher: 'Annalen der Physik',
-      },
-    ],
-    partners: [
-      {
-        name: 'Mileva Marić',
-        relationship: 'First wife',
-        years: '1903-1919',
-      },
-      {
-        name: 'Elsa Einstein',
-        relationship:
-          "Second wife, also Einstein's first cousin",
-        years: '1919-1936',
-      },
-    ],
-    awards: [
-      {
-        title: 'Nobel Prize in Physics',
-        year: 1921,
-        description:
-          'Awarded for his explanation of the photoelectric effect',
-      },
-    ],
-    influences: [
-      'Isaac Newton',
-      'James Clerk Maxwell',
-      'Hermann Minkowski',
-    ],
-    influenced: [
-      'Niels Bohr',
-      'Erwin Schrödinger',
-      'Werner Heisenberg',
-      'Richard Feynman',
-    ],
-    quotes: [
-      'Imagination is more important than knowledge.',
-      'I have no special talent. I am only passionately curious.',
-      'The important thing is not to stop questioning.',
-      'The most beautiful thing we can experience is the mysterious. It is the source of all true art and all science.',
-    ],
-    major_discoveries: [
-      {
-        title: 'Photoelectric Effect',
-        year: 1905,
-        description:
-          'Einstein explained the photoelectric effect, where electrons are emitted from a metal surface when it is illuminated by light.',
-      },
-    ],
-    contributions: {
-      title: 'Inventions',
-      description:
-        'Leonardo designed and invented a wide variety of machines and devices, including a helicopter, a diving suit, and a self-propelled cart. Many of his inventions were centuries ahead of their time.',
-      year: 'Late 15th to early 16th century',
-      field: 'Invention',
     },
   })
 })
 
-// ================================================================
-
+// ----------------------------------------
+//  PROGRAM
+// ----------------------------------------
 router.get('/program', function (req, res) {
-  //             ↙ cюди вводимо назву файлу з сontainer
   res.render('program', {
-    layout: 'program',
-
     program: {
       excursion: {
         name: 'Cultural Tour',
@@ -519,12 +402,12 @@ router.get('/program', function (req, res) {
                   {
                     name: 'Winged Victory of Samothrace',
                     artist: null,
-                    description:
-                      'Ancient Greek statue of Nike, the goddess of victory',
+                    description: 'Ancient Greek statue of Nike',
                     audio_guide: true,
                   },
                 ],
               },
+
               guide: {
                 name: 'Francois',
                 language: 'French',
@@ -532,6 +415,7 @@ router.get('/program', function (req, res) {
               },
             },
           },
+
           {
             name: 'Cultural Show',
             type: 'Music and Dance',
@@ -545,16 +429,15 @@ router.get('/program', function (req, res) {
                   country: 'France',
                 },
               },
+
               performers: [
-                {
-                  name: 'Mireille Mathieu',
-                  type: 'Chanson singer',
-                },
+                { name: 'Mireille Mathieu', type: 'Chanson singer' },
                 {
                   name: "Ballet de l'Opéra National de Paris",
                   type: 'Classical ballet company',
                 },
               ],
+
               guide: {
                 name: 'Sophie',
                 language: 'English',
@@ -568,13 +451,11 @@ router.get('/program', function (req, res) {
   })
 })
 
-// ================================================================
-
+// ----------------------------------------
+//  WEB
+// ----------------------------------------
 router.get('/web', function (req, res) {
-  //             ↙ cюди вводимо назву файлу з сontainer
   res.render('web', {
-    layout: 'web',
-
     web: {
       languages: [
         {
@@ -585,110 +466,73 @@ router.get('/web', function (req, res) {
           elements: [
             {
               name: 'div',
-              description:
-                'Defines a division or a section in an HTML document.',
+              description: 'Defines a division or section in HTML.',
               attributes: [
-                {
-                  name: 'id',
-                  description:
-                    'Specifies a unique id for an HTML element.',
-                },
-                {
-                  name: 'class',
-                  description:
-                    'Specifies one or more class names for an HTML element.',
-                },
+                { name: 'id', description: 'Specifies a unique id.' },
+                { name: 'class', description: 'Specifies CSS class(es).' },
               ],
             },
             {
               name: 'p',
-              description:
-                'Defines a paragraph in an HTML document.',
+              description: 'Defines a paragraph.',
               attributes: [
-                {
-                  name: 'id',
-                  description:
-                    'Specifies a unique id for an HTML element.',
-                },
-                {
-                  name: 'class',
-                  description:
-                    'Specifies one or more class names for an HTML element.',
-                },
+                { name: 'id', description: 'Specifies a unique id.' },
+                { name: 'class', description: 'Specifies CSS class(es).' },
               ],
             },
           ],
         },
+
         {
           name: 'CSS',
           version: 'CSS3',
           description:
-            'Cascading Style Sheets is a style sheet language used for describing the presentation of a document written in HTML or XML.',
+            'Cascading Style Sheets is a style language used to describe the presentation of HTML.',
           properties: [
             {
               name: 'color',
               description: 'Sets the color of the text.',
               values: [
-                {
-                  value: 'red',
-                  description:
-                    'Sets the text color to red.',
-                },
-                {
-                  value: 'blue',
-                  description:
-                    'Sets the text color to blue.',
-                },
+                { value: 'red', description: 'Text becomes red.' },
+                { value: 'blue', description: 'Text becomes blue.' },
               ],
             },
             {
               name: 'background-color',
-              description:
-                'Sets the background color of an element.',
+              description: 'Sets background color.',
               values: [
-                {
-                  value: 'white',
-                  description:
-                    'Sets the background color to white.',
-                },
-                {
-                  value: 'black',
-                  description:
-                    'Sets the background color to black.',
-                },
+                { value: 'white', description: 'Background white.' },
+                { value: 'black', description: 'Background black.' },
               ],
             },
           ],
         },
+
         {
           name: 'JavaScript',
           version: 'ES6',
           description:
-            'JavaScript is a programming language used to create interactive effects within web browsers.',
+            'JavaScript is a programming language used to create dynamic web content.',
           functions: [
             {
               name: 'alert()',
-              description:
-                'Displays an alert box with a specified message and an OK button.',
+              description: 'Shows alert box.',
               parameters: [
                 {
                   name: 'message',
                   type: 'string',
-                  description:
-                    'The message to display in the alert box.',
+                  description: 'Text inside popup.',
                 },
               ],
             },
             {
               name: 'getElementById()',
-              description:
-                'Returns the element with the specified ID.',
+              description: 'Returns element by ID.',
               parameters: [
                 {
                   name: 'id',
                   type: 'string',
-                  description:
-                    'The ID of the element to find.',
+                  description: 'ID of element to search.',
                 },
               ],
             },
@@ -699,16 +543,12 @@ router.get('/web', function (req, res) {
   })
 })
 
-// ================================================================
-
+// ----------------------------------------
+//  JAVASCRIPT
+// ----------------------------------------
 router.get('/js', function (req, res) {
-  // res.render генерує нам HTML сторінку
-
-  //            ↙ cюди вводимо назву файлу з сontainer
   res.render('js', {
     name: 'JavaScript',
-    layout: 'js',
-
     description:
       'JavaScript is a popular high-level, dynamic, and interpreted programming language.',
     history: {
@@ -760,42 +600,26 @@ router.get('/js', function (req, res) {
       'Cypress',
     ],
     community: [
-      {
-        name: 'Stack Overflow',
-        type: 'forum',
-      },
-      {
-        name: 'JavaScript Weekly',
-        type: 'newsletter',
-      },
-      {
-        name: 'The Changelog',
-        type: 'podcast',
-      },
-      {
-        name: 'CSS-Tricks',
-        type: 'blog',
-      },
+      { name: 'Stack Overflow', type: 'forum' },
+      { name: 'JavaScript Weekly', type: 'newsletter' },
+      { name: 'The Changelog', type: 'podcast' },
+      { name: 'CSS-Tricks', type: 'blog' },
     ],
   })
-  //                  ↑↑ сюди вводимо JSON дані
 })
 
-// ================================================================
-
-// router.get Створює нам один ентпоїнт
-
+// ----------------------------------------
+//  CAR
+// ----------------------------------------
 router.get('/car', function (req, res) {
-  // res.render генерує нам HTML сторінку
-
-  //            ↙ cюди вводимо назву файлу з сontainer
   res.render('car', {
-    layout: 'car',
+    page: { title: 'Car details' },
 
     make: 'Toyota',
     model: 'Camry',
     year: 2022,
     color: 'silver',
+
     features: {
       interior: {
         seats: {
@@ -804,6 +628,7 @@ router.get('/car', function (req, res) {
           heated: true,
           ventilated: true,
         },
+
         dashboard: {
           material: 'plastic',
           color: 'black',
@@ -814,6 +639,7 @@ router.get('/car', function (req, res) {
             touchscreen: true,
           },
         },
+
         audio: {
           system: 'JBL',
           speakers: 8,
@@ -822,23 +648,27 @@ router.get('/car', function (req, res) {
           usb: true,
         },
       },
+
       exterior: {
         wheels: {
           size: 18,
           type: 'alloy',
           color: 'silver',
         },
+
         headlights: {
           type: 'LED',
           brightness: 'high',
           automatic: true,
         },
+
         sunroof: {
           type: 'panoramic',
           size: 'large',
           automatic: true,
         },
       },
+
       safety: {
         airbags: {
           front: 2,
@@ -846,6 +676,7 @@ router.get('/car', function (req, res) {
           knee: 2,
           rear: 2,
         },
+
         assistance: {
           blind_spot_monitoring: true,
           rear_cross_traffic_alert: true,
@@ -855,6 +686,7 @@ router.get('/car', function (req, res) {
         },
       },
     },
+
     engine: {
       type: 'gasoline',
       displacement: 2.5,
@@ -865,11 +697,13 @@ router.get('/car', function (req, res) {
         gears: 8,
       },
     },
+
     fuel_economy: {
       city: 28,
       highway: 39,
       combined: 32,
     },
+
     price: {
       base: 25900,
       destination: 995,
@@ -881,24 +715,18 @@ router.get('/car', function (req, res) {
       total: 28990,
     },
   })
-  //                  ↑↑ сюди вводимо JSON дані
 })
 
-// ================================================================
-
-// router.get Створює нам один ентпоїнт
-
+// ----------------------------------------
+//  MAC
+// ----------------------------------------
 router.get('/mac', function (req, res) {
-  // res.render генерує нам HTML сторінку
-
-  //            ↙ cюди вводимо назву файлу з сontainer
   res.render('mac', {
     name: 'Apple MacBook Pro',
-    layout: 'mac',
-
     description: 'The ultimate notebook for power users',
     price: 1999.99,
     category: 'Computers & Tablets',
+
     features: {
       processor: {
         brand: 'Intel',
@@ -907,15 +735,18 @@ router.get('/mac', function (req, res) {
         cores: 8,
         cache: '16 MB',
       },
+
       memory: {
         type: 'DDR4',
         size: '32 GB',
         speed: '2666 MHz',
       },
+
       storage: {
         type: 'SSD',
         size: '1 TB',
       },
+
       display: {
         size: '16 inches',
         resolution: '3072x1920',
@@ -924,11 +755,13 @@ router.get('/mac', function (req, res) {
         brightness: '500 nits',
         refresh_rate: '60 Hz',
       },
+
       graphics: {
         brand: 'AMD',
         model: 'Radeon Pro 5500M',
         memory: '4 GB GDDR6',
       },
+
       ports: [
         {
           type: 'Thunderbolt 3',
@@ -945,47 +778,40 @@ router.get('/mac', function (req, res) {
           count: 1,
         },
       ],
+
       battery: {
         type: 'Lithium Polymer',
         capacity: '100 Wh',
         life: 'Up to 11 hours',
       },
+
       weight: '4.3 pounds',
+
       dimensions: {
         height: '0.64 inch',
         width: '14.09 inches',
         depth: '9.68 inches',
       },
+
       operating_system: 'macOS',
+
       accessories: [
-        {
-          name: 'Apple Magic Keyboard',
-          price: 99.99,
-        },
-        {
-          name: 'Apple Magic Mouse 2',
-          price: 79.99,
-        },
-        {
-          name: 'USB-C to USB Adapter',
-          price: 19.99,
-        },
+        { name: 'Apple Magic Keyboard', price: 99.99 },
+        { name: 'Apple Magic Mouse 2', price: 79.99 },
+        { name: 'USB-C to USB Adapter', price: 19.99 },
       ],
     },
   })
-  //                  ↑↑ сюди вводимо JSON дані
 })
 
-// ================================================================
-// router.get Створює нам один ентпоїнт
-
+// ----------------------------------------
+//  FACEBOOK
+// ----------------------------------------
 router.get('/facebook', function (req, res) {
-  // res.render генерує нам HTML сторінку
-
-  //            ↙ cюди вводимо назву файлу з сontainer
   res.render('facebook', {
+    page: { title: 'Facebook demo' },
+
     name: 'Facebook',
-    layout: 'facebook',
 
     users: [
       {
@@ -993,12 +819,14 @@ router.get('/facebook', function (req, res) {
         name: 'John Doe',
         gender: 'Male',
         age: 30,
+
         friends: [
           {
             id: 2,
             name: 'Jane Smith',
             gender: 'Female',
             age: 27,
+
             mutual_friends: [
               {
                 id: 4,
@@ -1013,6 +841,7 @@ router.get('/facebook', function (req, res) {
             name: 'Mike Williams',
             gender: 'Male',
             age: 28,
+
             mutual_friends: [
               {
                 id: 7,
@@ -1023,12 +852,14 @@ router.get('/facebook', function (req, res) {
             ],
           },
         ],
+
         groups: [
           {
             id: 1,
             name: 'Hiking Enthusiasts',
             description:
               'A group for people who love hiking and the great outdoors',
+
             members: [
               {
                 id: 8,
@@ -1043,6 +874,7 @@ router.get('/facebook', function (req, res) {
             name: 'Foodies United',
             description:
               'A group for food lovers to share recipes and restaurant recommendations',
+
             members: [
               {
                 id: 5,
@@ -1060,17 +892,20 @@ router.get('/facebook', function (req, res) {
           },
         ],
       },
+
       {
         id: 16,
         name: 'Amy Lee',
         gender: 'Female',
         age: 30,
+
         friends: [
           {
             id: 15,
             name: 'Peter Kim',
             gender: 'Male',
             age: 32,
+
             mutual_friends: [
               {
                 id: 17,
@@ -1083,6 +918,7 @@ router.get('/facebook', function (req, res) {
                 name: 'Erica Wong',
                 gender: 'Female',
                 age: 29,
+
                 mutual_friends: [
                   {
                     id: 20,
@@ -1093,12 +929,14 @@ router.get('/facebook', function (req, res) {
                 ],
               },
             ],
+
             groups: [
               {
                 id: 3,
                 name: 'Travel Addicts',
                 description:
                   'A group for people who love to travel and explore new places',
+
                 members: [
                   {
                     id: 22,
@@ -1111,8 +949,8 @@ router.get('/facebook', function (req, res) {
               {
                 id: 4,
                 name: 'Pet Lovers',
-                description:
-                  'A group for people who love their furry friends',
+                description: 'A group for people who love their furry friends',
+
                 members: [
                   {
                     id: 16,
@@ -1134,7 +972,6 @@ router.get('/facebook', function (req, res) {
       },
     ],
   })
-  //                  ↑↑ сюди вводимо JSON дані
 })
 
 // ================================================================

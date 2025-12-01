@@ -1,0 +1,11 @@
+# Папки
+node_modules/
+dist/
+public/dist/
+
+# Згенеровані файли
+public/app.js
+public/index.js
+
+# Ігноримо hbs-файли (Преттір не вміє форматувати їх коректно)
+**/*.hbs

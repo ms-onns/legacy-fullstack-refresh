@@ -1,0 +1,113 @@
+{{!< default }}
+
+<section>
+
+  <header>
+    <h1>Tour Program: {{program.excursion.name}}</h1>
+
+    <p>
+      <strong>Destination:</strong>
+      {{program.excursion.location.city}},
+      {{program.excursion.location.country}}
+    </p>
+
+    <p>
+      <strong>Date:</strong>
+      <time datetime="{{program.excursion.date}}">
+        {{program.excursion.date}}
+      </time>
+    </p>
+  </header>
+
+  <hr />
+
+  <h2>Detailed Activity Plan</h2>
+
+  {{#each program.excursion.program}}
+    <article>
+
+      <h3>{{name}} <small>(Type: {{type}})</small></h3>
+
+      <p><strong>Duration:</strong> {{duration}} hours</p>
+
+      {{!-- ======================== MUSEUM ======================== --}}
+      {{#with details.museum}}
+        <section>
+          <h4>Museum: {{name}}</h4>
+
+          <p>
+            <strong>Address:</strong>
+            {{location.address}},
+            {{location.city}},
+            {{location.country}}
+          </p>
+
+          {{#with ../details.guide}}
+            <p>
+              <strong>Guide:</strong>
+              {{name}}
+              (Language: {{language}},
+              Rating: {{rating}})
+            </p>
+          {{/with}}
+
+          <h5>Key Exhibits</h5>
+          <ul>
+            {{#each exhibits}}
+              <li>
+                <p>
+                  <strong>{{name}}</strong>
+                  {{#if artist}} (Author: {{artist}}){{/if}}
+                </p>
+
+                <p><strong>Description:</strong> {{description}}</p>
+
+                <p>
+                  <strong>Audio guide:</strong>
+                  {{#if audio_guide}}Available{{else}}Not available{{/if}}
+                </p>
+              </li>
+            {{/each}}
+          </ul>
+        </section>
+      {{/with}}
+
+      {{!-- ======================== VENUE ======================== --}}
+      {{#with details.venue}}
+        <section>
+          <h4>Venue: {{name}}</h4>
+
+          <p>
+            <strong>Address:</strong>
+            {{location.address}},
+            {{location.city}},
+            {{location.country}}
+          </p>
+
+          {{#with ../details.guide}}
+            <p>
+              <strong>Guide:</strong>
+              {{name}}
+              (Language: {{language}},
+              Rating: {{rating}})
+            </p>
+          {{/with}}
+
+          <h5>Performers</h5>
+          <ul>
+            {{#each ../details.performers}}
+              <li>
+                <strong>{{name}}</strong>
+                ({{type}})
+              </li>
+            {{/each}}
+          </ul>
+        </section>
+      {{/with}}
+
+    </article>
+
+    {{#unless @last}}<hr />{{/unless}}
+  {{/each}}
+
+</section>

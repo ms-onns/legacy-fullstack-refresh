@@ -1,0 +1,133 @@
+{{!< default }}
+
+<article>
+
+  <header>
+    <h1>{{bio.name}}</h1>
+  </header>
+
+  <section>
+    <h2>Personal information</h2>
+    <ul>
+      <li>Birthdate: <time datetime="{{bio.birthdate}}">{{bio.birthdate}}</time></li>
+      <li>Birthplace: {{bio.birthplace}}</li>
+      <li>Deathdate: <time datetime="{{bio.deathdate}}">{{bio.deathdate}}</time></li>
+      <li>Deathplace: {{bio.deathplace}}</li>
+      <li>Nationality: {{bio.nationality}}</li>
+      <li>Occupation: {{bio.occupation}}</li>
+    </ul>
+  </section>
+
+  <section>
+    <h3>Known for</h3>
+    <p>
+      {{#each bio.known_for}}
+        {{this}}{{#unless @last}}, {{/unless}}
+      {{/each}}
+    </p>
+  </section>
+
+  <section>
+    <h3>Education</h3>
+    <ul>
+      {{#each bio.education}}
+        <li>
+          <strong>{{degree}}</strong> in {{field}},
+          <em>{{institution}}</em>,
+          <time datetime="{{year}}">{{year}}</time>
+        </li>
+      {{/each}}
+    </ul>
+  </section>
+
+  <section>
+    <h3>Notable publications</h3>
+    {{#each bio.notable_publications}}
+      <article>
+        <h4>{{title}}</h4>
+        <ul>
+          <li>Publisher: {{publisher}}</li>
+          <li>Year: <time datetime="{{year}}">{{year}}</time></li>
+        </ul>
+      </article>
+    {{/each}}
+  </section>
+
+  <section>
+    <h3>Partners</h3>
+    {{#each bio.partners}}
+      <article>
+        <h4>{{name}}</h4>
+        <ul>
+          <li>Relationship: {{relationship}}</li>
+          <li>Years: <time>{{years}}</time></li>
+        </ul>
+      </article>
+    {{/each}}
+  </section>
+
+  <section>
+    <h3>Awards</h3>
+    {{#each bio.awards}}
+      <article>
+        <h4>
+          {{title}}
+          (<time datetime="{{year}}">{{year}}</time>)
+        </h4>
+        <p>{{description}}</p>
+      </article>
+    {{/each}}
+  </section>
+
+  <section>
+    <h3>Influences</h3>
+
+    <article>
+      <h4>People who made an impact on him</h4>
+      <ul>
+        {{#each bio.influences}}
+          <li>{{this}}</li>
+        {{/each}}
+      </ul>
+    </article>
+
+    <article>
+      <h4>People influenced by him</h4>
+      <ul>
+        {{#each bio.influenced}}
+          <li>{{this}}</li>
+        {{/each}}
+      </ul>
+    </article>
+  </section>
+
+  <section>
+    <h3>Quotes</h3>
+    {{#each bio.quotes}}
+      <blockquote><p>{{this}}</p></blockquote>
+    {{/each}}
+  </section>
+
+  <section>
+    <h3>Major discoveries</h3>
+    {{#each bio.major_discoveries}}
+      <article>
+        <h4>
+          {{title}}
+          (<time datetime="{{year}}">{{year}}</time>)
+        </h4>
+        <p>{{description}}</p>
+      </article>
+    {{/each}}
+  </section>
+
+  <section>
+    <h3>{{bio.contributions.title}}</h3>
+    <p>{{bio.contributions.description}}</p>
+    <ul>
+      <li>Field: {{bio.contributions.field}}</li>
+      <li>Year: {{bio.contributions.year}}</li>
+    </ul>
+  </section>
+
+</article>
