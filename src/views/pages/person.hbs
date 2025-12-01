@@ -1,0 +1,158 @@
+{{!< default }}
+
+{{#with person}}
+<section>
+
+  {{!-- ============================================= --}}
+  {{!--  HEADER                                       --}}
+  {{!-- ============================================= --}}
+  <header>
+    <h1>{{name}}</h1>
+  </header>
+
+  {{!-- ============================================= --}}
+  {{!--  BASIC INFORMATION                            --}}
+  {{!-- ============================================= --}}
+  <h2>Basic information</h2>
+  <p>Age: <b>{{age}}</b></p>
+  <p>Gender: <b>{{gender}}</b></p>
+
+  {{!-- ============================================= --}}
+  {{!--  ADDRESS                                      --}}
+  {{!-- ============================================= --}}
+  <h3>Address</h3>
+  <address>
+    {{address.street}}, {{address.city}}, {{address.state}},
+    {{address.zip}}, {{address.country}}
+  </address>
+
+  <hr />
+
+  {{!-- ============================================= --}}
+  {{!--  EDUCATION                                    --}}
+  {{!-- ============================================= --}}
+  <h2>Education</h2>
+  {{#each education}}
+    <article>
+      <h3>{{degree}}</h3>
+      <p><b>Major:</b> {{major}}</p>
+      <p><b>University:</b> {{university}}</p>
+      <p><b>Graduation year:</b> {{graduationYear}}</p>
+    </article>
+    {{#unless @last}}<hr />{{/unless}}
+  {{/each}}
+
+  {{!-- ============================================= --}}
+  {{!--  WORK EXPERIENCE                              --}}
+  {{!-- ============================================= --}}
+  <h2>Work Experience</h2>
+  {{#each workExperience}}
+    <article>
+
+      {{!-- WORK HEADER --}}
+      <header>
+        <h3>{{title}} — {{company}}</h3>
+      </header>
+
+      <p><b>Period:</b> {{startDate}} — {{endDate}}</p>
+
+      {{!-- RESPONSIBILITIES --}}
+      <h4>Responsibilities</h4>
+      <ul>
+        {{#each responsibilities}}
+          <li>{{this}}</li>
+        {{/each}}
+      </ul>
+
+      <p>
+        <small>
+          Founded: {{year_founded}} |
+          Industry: {{industry}}
+        </small>
+      </p>
+
+      {{!-- ============================================= --}}
+      {{!--  EMPLOYEES                                   --}}
+      {{!-- ============================================= --}}
+      {{#each employees}}
+        <section>
+          <h4>Employee: {{name}}</h4>
+          <p>Position: {{position}} | Department: {{department}}</p>
+
+          {{!-- ============================================= --}}
+          {{!--  PROJECTS                                   --}}
+          {{!-- ============================================= --}}
+          {{#each projects}}
+            <article>
+
+              <h5>Project: {{name}} ({{status}})</h5>
+              <p>{{description}}</p>
+
+              {{!-- ============================================= --}}
+              {{!--  TEAMS                                      --}}
+              {{!-- ============================================= --}}
+              {{#each teams}}
+                <section>
+
+                  <h5>Team: {{team_name}}</h5>
+
+                  {{!-- TEAM LEADER --}}
+                  {{#with team_leader}}
+                    <p>
+                      <b>Team Leader:</b> {{name}} ({{title}})
+                      <br />Email: {{email}}
+                    </p>
+                  {{/with}}
+
+                  {{!-- TEAM MEMBERS --}}
+                  <h5>Team members</h5>
+                  <ul>
+                    {{#each team_members}}
+                      <li>
+
+                        <b>{{name}}</b> ({{title}})
+                        <br />{{email}}
+
+                        {{#if skills}}
+                          <p>Skills: {{skills}}</p>
+                        {{/if}}
+
+                        {{!-- ============================================= --}}
+                        {{!--  TEAM MEMBER PROJECTS                        --}}
+                        {{!-- ============================================= --}}
+                        {{#each projects}}
+                          <section>
+                            <h6>Project: {{name}}</h6>
+                            <p>{{description}}</p>
+                            <p>Tech: {{technologies}}</p>
+
+                            <h6>Project team</h6>
+                            <ul>
+                              {{#each team_members}}
+                                <li>{{name}} ({{title}})</li>
+                              {{/each}}
+                            </ul>
+                          </section>
+                        {{/each}}
+
+                      </li>
+                    {{/each}}
+                  </ul>
+
+                </section>
+              {{/each}}
+
+            </article>
+          {{/each}}
+
+        </section>
+      {{/each}}
+
+    </article>
+
+    {{#unless @last}}<hr />{{/unless}}
+  {{/each}}
+
+</section>
+{{/with}}
+

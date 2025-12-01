@@ -1,0 +1,19 @@
+{{!< default }}
+
+{{#with main}}
+
+  <section>
+    {{> title big=true data=summary.title}}
+    <p>{{summary.text}}</p>
+  </section>
+
+  <hr />
+
+  <section>
+    {{#with experience}}
+      {{> title big=true data=title}}
+      <p>{{text}}</p>
+    {{/with}}
+  </section>
+
+{{/with}}

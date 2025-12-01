@@ -1,0 +1,207 @@
+{{!< default }}
+
+<article>
+
+  <header>
+    <h1>{{make}} {{model}} ({{year}} — {{color}})</h1>
+  </header>
+
+  {{#with features}}
+
+    {{! ---------- INTERIOR ---------- }}
+    {{#with interior}}
+      <section>
+        <h2>Interior Features</h2>
+
+        <article>
+          <h3>Seats</h3>
+          <ul>
+            <li>Material: {{seats.material}}</li>
+            <li>Color: {{seats.color}}</li>
+            <li>Heated:
+              {{#if seats.heated}}Available{{else}}Not available{{/if}}
+            </li>
+            <li>Ventilated:
+              {{#if seats.ventilated}}Available{{else}}Not available{{/if}}
+            </li>
+          </ul>
+        </article>
+
+        <article>
+          <h3>Dashboard</h3>
+          <ul>
+            <li>Material: {{dashboard.material}}</li>
+            <li>Color: {{dashboard.color}}</li>
+          </ul>
+        </article>
+
+        <article>
+          <h3>Display</h3>
+          <ul>
+            <li>Type: {{dashboard.display.type}}</li>
+            <li>Size: {{dashboard.display.size}}</li>
+            <li>Resolution: {{dashboard.display.resolution}}</li>
+            <li>Touchscreen:
+              {{#if dashboard.display.touchscreen}}Available{{else}}Not available{{/if}}
+            </li>
+          </ul>
+        </article>
+
+        <article>
+          <h3>Audio System</h3>
+          <ul>
+            <li>System: {{audio.system}}</li>
+            <li>Speakers: {{audio.speakers}}</li>
+            <li>Subwoofer:
+              {{#if audio.subwoofer}}Available{{else}}Not available{{/if}}
+            </li>
+            <li>Bluetooth:
+              {{#if audio.bluetooth}}Available{{else}}Not available{{/if}}
+            </li>
+            <li>USB:
+              {{#if audio.usb}}Available{{else}}Not available{{/if}}
+            </li>
+          </ul>
+        </article>
+
+      </section>
+    {{/with}}
+
+
+    {{! ---------- EXTERIOR ---------- }}
+    {{#with exterior}}
+      <section>
+        <h2>Exterior</h2>
+
+        <article>
+          <h3>Wheels</h3>
+          <ul>
+            <li>Size: {{wheels.size}}</li>
+            <li>Type: {{wheels.type}}</li>
+            <li>Color: {{wheels.color}}</li>
+          </ul>
+        </article>
+
+        <article>
+          <h3>Headlights</h3>
+          <ul>
+            <li>Type: {{headlights.type}}</li>
+            <li>Brightness: {{headlights.brightness}}</li>
+            <li>Automatic:
+              {{#if headlights.automatic}}Available{{else}}Not available{{/if}}
+            </li>
+          </ul>
+        </article>
+
+        <article>
+          <h3>Sunroof</h3>
+          <ul>
+            <li>Type: {{sunroof.type}}</li>
+            <li>Size: {{sunroof.size}}</li>
+            <li>Automatic:
+              {{#if sunroof.automatic}}Available{{else}}Not available{{/if}}
+            </li>
+          </ul>
+        </article>
+
+      </section>
+    {{/with}}
+
+
+    {{! ---------- SAFETY ---------- }}
+    {{#with safety}}
+      <section>
+        <h2>Safety</h2>
+
+        <article>
+          <h3>Airbags</h3>
+          <ul>
+            <li>Front: {{airbags.front}}</li>
+            <li>Side: {{airbags.side}}</li>
+            <li>Knee: {{airbags.knee}}</li>
+            <li>Rear: {{airbags.rear}}</li>
+          </ul>
+        </article>
+
+        <article>
+          <h3>Assistance Systems</h3>
+          <ul>
+            <li>Blind spot monitoring:
+              {{#if assistance.blind_spot_monitoring}}Available{{else}}Not available{{/if}}
+            </li>
+            <li>Rear cross traffic alert:
+              {{#if assistance.rear_cross_traffic_alert}}Available{{else}}Not available{{/if}}
+            </li>
+            <li>Lane departure warning:
+              {{#if assistance.lane_departure_warning}}Available{{else}}Not available{{/if}}
+            </li>
+            <li>Adaptive cruise control:
+              {{#if assistance.adaptive_cruise_control}}Available{{else}}Not available{{/if}}
+            </li>
+            <li>Collision warning:
+              {{#if assistance.collision_warning}}Available{{else}}Not available{{/if}}
+            </li>
+          </ul>
+        </article>
+
+      </section>
+    {{/with}}
+
+  {{/with}}
+
+
+  {{! ---------- ENGINE & FUEL ---------- }}
+  <section>
+
+    {{#with engine}}
+      <article>
+        <h2>Engine</h2>
+        <ul>
+          <li>Type: {{type}}</li>
+          <li>Displacement: {{displacement}}</li>
+          <li>Horsepower: {{horsepower}}</li>
+          <li>Torque: {{torque}}</li>
+        </ul>
+
+        <h3>Transmission</h3>
+        <ul>
+          <li>Type: {{transmission.type}}</li>
+          <li>Gears: {{transmission.gears}}</li>
+        </ul>
+      </article>
+    {{/with}}
+
+    {{#with fuel_economy}}
+      <article>
+        <h3>Fuel Economy</h3>
+        <ul>
+          <li>City: {{city}}</li>
+          <li>Highway: {{highway}}</li>
+          <li>Combined: {{combined}}</li>
+        </ul>
+      </article>
+    {{/with}}
+
+  </section>
+
+
+  {{! ---------- PRICE ---------- }}
+  {{#with price}}
+    <section>
+      <h2>Price</h2>
+
+      <p><strong>Base price:</strong> {{base}}</p>
+      <p><strong>Destination:</strong> {{destination}}</p>
+
+      <h3>Options</h3>
+      <ul>
+        <li>Navigation: {{options.navigation}}</li>
+        <li>Moonroof: {{options.moonroof}}</li>
+        <li>Premium paint: {{options.premium_paint}}</li>
+      </ul>
+
+      <h3>Total: {{total}}</h3>
+    </section>
+  {{/with}}
+
+</article>

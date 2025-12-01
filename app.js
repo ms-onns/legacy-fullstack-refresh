@@ -16,7 +16,7 @@ const hbs = handlebars.create({
   extname: 'hbs',
   defaultLayout: 'default',
   layoutsDir: path.join(__dirname, 'src/layout'),
-  partialsDir: path.join(__dirname, 'src/component'),
+  partialsDir: path.join(__dirname, 'src/components'),
   helpers: {
     isObject: (value) => typeof value === 'object' && value !== null,
     isArray: Array.isArray,
@@ -27,7 +27,7 @@ const hbs = handlebars.create({
 
 app.engine('hbs', hbs.engine)
 app.set('view engine', 'hbs')
-app.set('views', path.join(__dirname, 'src/container'))
+app.set('views', path.join(__dirname, 'src/views/pages'))
 
 // =================================================
 
@@ -71,6 +71,7 @@ app.use((err, req, res, next) => {
   res.status(err.status || 500)
   res.render('error', {
     message: err.message,
+    status: err.status,
     error: isDev ? err : {},
   })
 })
