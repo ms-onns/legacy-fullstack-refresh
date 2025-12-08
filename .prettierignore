@@ -7,5 +7,3 @@ public/dist/
 public/app.js
 public/index.js
 
-# Ігноримо hbs-файли (Преттір не вміє форматувати їх коректно)
-**/*.hbs
