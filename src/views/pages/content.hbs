@@ -1,0 +1,114 @@
+{{!< default }}
+
+{{! ============================================= }}
+{{! MAIN SECTIONS                                 }}
+{{! ============================================= }}
+<section class='py-4'>
+  <div class='container'>
+
+    <div class='card shadow-sm'>
+      <div class='card-body'>
+
+        {{#each sections}}
+          <div class='card mb-4'>
+            <div class='card-body'>
+
+              <h2 class='h4 mb-2'>{{title}}</h2>
+
+              <p class='mb-3'>
+                {{text}}
+              </p>
+
+              <div class='d-flex flex-column gap-2 align-items-start'>
+                <button class='btn {{buttons.primary.color}}'>
+                  {{buttons.primary.text}}
+                </button>
+
+                <button class='btn {{buttons.secondary.color}}'>
+                  {{buttons.secondary.text}}
+                </button>
+              </div>
+
+            </div>
+          </div>
+        {{/each}}
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+{{! ============================================= }}
+{{! NESTED BLOCK                                  }}
+{{! ============================================= }}
+{{! ============================================= }}
+{{! NESTED BLOCK                                  }}
+{{! ============================================= }}
+<section class='py-4'>
+  {{#with nested}}
+    <div class='container'>
+
+      <div class='card shadow-sm'>
+        <div class='card-body'>
+
+          <span class='display-4 mb-3'>{{parent.title}}</span>
+
+          <div class='card mb-4'>
+            <div class='card-body'>
+
+              <span class='display-6 mb-2'>{{parent.subtitle}}</span>
+
+              <p>{{parent.text}}</p>
+
+              <button class='btn {{parent.button.color}}'>
+                {{parent.button.text}}
+              </button>
+
+            </div>
+          </div>
+
+          <h6>{{child.title}}</h6>
+
+          <button class='btn {{child.button.color}} mt-2'>
+            {{child.button.text}}
+          </button>
+
+        </div>
+      </div>
+
+    </div>
+  {{/with}}
+</section>
+
+{{! ============================================= }}
+{{! PARAGRAPH & LINKS                             }}
+{{! ============================================= }}
+<section class='py-4'>
+  {{#with paragraph}}
+    <div class='container'>
+
+      <div class='card shadow-sm'>
+        <div class='card-body'>
+
+          <p class='text-uppercase'>{{title}}</p>
+          <p class='text-lowercase'>{{text}}</p>
+
+          <a class='btn btn-link mb-4' href='{{button.url}}'>
+            {{button.text}}
+          </a>
+
+          <ul class='list-group'>
+            {{#each links}}
+              <li class='list-group-item'>
+                <a href='{{url}}'>{{text}}</a>
+              </li>
+            {{/each}}
+          </ul>
+
+        </div>
+      </div>
+
+    </div>
+  {{/with}}
+</section>
