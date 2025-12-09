@@ -981,6 +981,69 @@ router.get('/bootstrap', (req, res) => {
   res.render('bootstrap', {})
 })
 
+// ----------------------------------------
+//  CONTENT
+// ----------------------------------------
+router.get('/content', (req, res) => {
+  res.render('content', {
+    // ---- HERO / MAIN SECTIONS ----
+    sections: [
+      {
+        title: 'JavaScript',
+        text: 'JavaScript is a popular high-level, dynamic, and interpreted programming language.',
+        buttons: {
+          primary: { text: 'Open page', color: 'btn-primary' },
+          secondary: { text: 'Add to cart', color: 'btn-outline-secondary' },
+        },
+      },
+      {
+        title: 'Stack Overflow',
+        text: 'First-class functions',
+        buttons: {
+          primary: { text: 'Open page', color: 'btn-success' },
+          secondary: { text: 'Add to cart', color: 'btn-outline-warning' },
+        },
+      },
+      {
+        title: 'JavaScript Weekly',
+        text: 'Prototype-based inheritance newsletter',
+        buttons: {
+          primary: { text: 'Open page', color: 'btn-danger' },
+          secondary: { text: 'Add to cart', color: 'btn-outline-info' },
+        },
+      },
+    ],
+
+    // ---- NESTED CONTENT BLOCK ----
+    nested: {
+      parent: {
+        title: 'HTML',
+        subtitle: 'Outdated HTML tags',
+        text: 'Tags that have been identified...',
+        button: { text: 'Learn more', color: 'btn-outline-warning' },
+      },
+      child: {
+        title: 'Sections',
+        button: { text: 'Open', color: 'btn-info' },
+      },
+    },
+
+    // ---- PARAGRAPH WITH LINKS ----
+    paragraph: {
+      title: 'About modules',
+      text: 'Modules with import/export statements',
+      button: {
+        text: 'Open link page',
+        url: 'https://google.com',
+      },
+      links: [
+        { text: 'Github', url: 'https://github.com/' },
+        { text: 'Bootstrap', url: 'https://getbootstrap.com/' },
+      ],
+    },
+  })
+})
+
 // ================================================================
 
 // ================================================================
