@@ -1044,6 +1044,60 @@ router.get('/content', (req, res) => {
   })
 })
 
+// ----------------------------------------
+//  COMPANY
+// ----------------------------------------
+router.get('/company', (req, res) => {
+  res.render('company', {
+    hero: {
+      title: 'InnovaMind',
+      description: 'Welcome to our wonderful community',
+    },
+
+    about: {
+      title: 'InnovaMind',
+      subtitle:
+        'InnovaMind is a forward-thinking startup focused on innovation. We are dedicated to creating efficient and powerful software through the use of first-class functions.',
+      button: { text: 'Show more', color: 'btn-outline-info' },
+    },
+
+    advantages: {
+      title: 'Advantage',
+      items: [
+        {
+          title: 'Efficiency',
+          subtitle: 'Streamline your software development',
+          text: 'Streamline your software development with our innovative platform...',
+          align: 'text-start',
+          button: { text: 'Show more', color: 'btn-outline-warning' },
+        },
+        {
+          title: 'Innovation',
+          subtitle: 'Forward-thinking approach to programming',
+          text: 'Stay ahead of the curve with our forward-thinking approach to programming...',
+          align: 'text-center',
+          button: { text: 'Show more', color: 'btn-outline-warning' },
+        },
+        {
+          title: 'Collaboration',
+          subtitle: 'Connect with like-minded developers',
+          text: 'Connect with a community of like-minded developers to share knowledge and insights...',
+          align: 'text-end',
+          button: { text: 'Show more', color: 'btn-outline-warning' },
+        },
+      ],
+    },
+
+    agreement: {
+      title: 'Terms of use',
+      subtitle: 'Check out our requirements',
+
+      text: 'By using or accessing the service, you agree to be bound by the terms and conditions outlined in the agreement.',
+      button: { text: 'Accept', color: 'btn-success' },
+    },
+  })
+})
+
 // ================================================================
 
 // ================================================================
