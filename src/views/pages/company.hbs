@@ -1,0 +1,96 @@
+{{!< default }}
+
+{{! ============================================= }}
+{{! HERO SECTION                                  }}
+{{! ============================================= }}
+<section>
+  <h1 class='text-center'>{{hero.title}}</h1>
+  <p class='text-center text-uppercase'>{{hero.description}}</p>
+</section>
+
+{{! ============================================= }}
+{{! ABOUT SECTION                                 }}
+{{! ============================================= }}
+<section>
+  <div class='card shadow-sm'>
+    <div class='card-body'>
+
+      <div class='text-end'>
+        <span class='display-6'>{{about.title}}</span>
+        <p>{{about.subtitle}}</p>
+      </div>
+
+      <button class='btn {{about.button.color}}'>{{about.button.text}}</button>
+
+    </div>
+  </div>
+</section>
+
+{{! ============================================= }}
+{{! ADVANTAGES SECTION                            }}
+{{! ============================================= }}
+<section>
+  <div class='container'>
+
+    <div class='card shadow-sm'>
+      <div class='card-body'>
+
+        <span class='display-5 d-block mb-4'>{{advantages.title}}</span>
+
+        {{#each advantages.items}}
+          <div class='card mb-5 shadow-sm'>
+            <div class='card-body'>
+
+              <div class='{{align}}'>
+                <span class='display-4'>{{title}}</span>
+                <h6 class='mt-3 mb-3'>{{subtitle}}</h6>
+                <p>{{text}}</p>
+              </div>
+
+              <button class='btn {{button.color}}'>{{button.text}}</button>
+
+            </div>
+          </div>
+        {{/each}}
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+{{! ============================================= }}
+{{! AGREEMENT SECTION                             }}
+{{! ============================================= }}
+<section>
+  <div class='container'>
+
+    <div class='card shadow-sm'>
+      <div class='card-body'>
+
+        <span class='display-5 d-block mb-4'>{{agreement.title}}</span>
+
+        <div class='card shadow-sm'>
+          <div class='card-body'>
+
+            <h5 class='mb-4'>{{agreement.subtitle}}</h5>
+
+            <div class='card shadow-sm'>
+              <div class='card-body'>
+
+                <p>{{agreement.text}}</p>
+                <button class='btn {{agreement.button.color}}'>
+                  {{agreement.button.text}}
+                </button>
+
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
