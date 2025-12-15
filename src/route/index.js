@@ -1100,6 +1100,258 @@ router.get('/company', (req, res) => {
 
 // ================================================================
 
+// ----------------------------------------
+//  OVERVIEW
+// ----------------------------------------
+router.get('/overview', (req, res) => {
+  res.render('overview', {
+    navigation: {
+      links: [
+        { text: 'Home', href: 'https://github.com/' },
+        { text: 'Contacts', href: 'https://www.google.com/' },
+        { text: 'Help', href: 'https://www.youtube.com/' },
+      ],
+      action: {
+        text: 'Start',
+        href: 'https://nodejs.org/en/',
+        color: 'btn-primary',
+      },
+    },
+
+    hero: {
+      title: 'Welcome to Our Website',
+      description:
+        'We offer innovative solutions to help grow your business. Our team of experts is committed to providing tailored strategies that deliver the best results.',
+      button: {
+        text: 'Learn more',
+        href: 'https://www.youtube.com/',
+        color: 'btn-primary',
+      },
+    },
+
+    cities: {
+      title: 'City list',
+      items: [
+        {
+          image: {
+            src: 'https://picsum.photos/400/200',
+            alt: 'New York',
+          },
+          title: 'New York City',
+          description:
+            'New York City comprises 5 boroughs sitting where the Hudson River meets the Atlantic Ocean...',
+          button: {
+            text: 'Read',
+            href: 'https://github.com/',
+            color: 'btn-primary',
+          },
+        },
+        {
+          image: {
+            src: 'https://picsum.photos/400/200',
+            alt: 'Paris',
+          },
+          title: 'Paris',
+          description:
+            "Paris, France's capital, is a major European city and a global center for art, fashion, gastronomy, and culture...",
+          button: {
+            text: 'Read',
+            href: 'https://github.com/',
+            color: 'btn-primary',
+          },
+        },
+        {
+          image: {
+            src: 'https://picsum.photos/400/200',
+            alt: 'Tokyo',
+          },
+          title: 'Tokyo',
+          description:
+            'Tokyo, Japan’s bustling capital, mixes the ultramodern and the traditional...',
+          button: {
+            text: 'Read',
+            href: 'https://github.com/',
+            color: 'btn-primary',
+          },
+        },
+        {
+          image: {
+            src: 'https://picsum.photos/400/200',
+            alt: 'Sydney',
+          },
+          title: 'Sydney',
+          description:
+            "Sydney, capital of New South Wales and one of Australia's largest cities...",
+          button: {
+            text: 'Read',
+            href: 'https://github.com/',
+            color: 'btn-primary',
+          },
+        },
+      ],
+    },
+
+    winners: {
+      title: 'Our winners',
+      table: {
+        head: ['#', 'Name', 'Surname', 'Nickname'],
+        rows: [
+          {
+            place: 1,
+            name: 'Ada',
+            surname: 'Lovelace',
+            nickname: 'The Enchantress of Numbers',
+          },
+          {
+            place: 2,
+            name: 'Grace',
+            surname: 'Hopper',
+            nickname: 'Amazing Grace',
+          },
+          {
+            place: 3,
+            name: 'Katherine',
+            surname: 'Johnson',
+            nickname: 'The Human Computer',
+          },
+        ],
+      },
+    },
+
+    gallery: {
+      title: 'Picture history',
+      items: [
+        {
+          name: 'The Mona Lisa',
+          details: ['Painting', 'Oil on poplar panel', '1503–1519'],
+        },
+        {
+          name: 'The Persistence of Memory',
+          details: ['Painting', 'Oil on canvas', '1931'],
+        },
+        {
+          name: 'The Starry Night',
+          details: ['Painting', 'Oil on canvas', '1889'],
+        },
+      ],
+    },
+
+    lifestyle: {
+      title: 'Relax',
+      cards: [
+        {
+          header: 'Meditation',
+          title: 'The Benefits of Meditation',
+          description:
+            'Meditation can help reduce stress, anxiety, and depression...',
+        },
+        {
+          header: 'Hydration',
+          title: 'The Importance of Hydration',
+          description: 'Drinking enough water is essential for good health...',
+        },
+        {
+          header: 'Yoga',
+          title: 'The Benefits of Yoga',
+          description: 'Yoga can improve flexibility, strength, and balance...',
+        },
+        {
+          header: 'Sunscreen',
+          title: 'The Importance of Sunscreen',
+          description:
+            "Protecting your skin from the sun's harmful rays is crucial...",
+        },
+      ],
+    },
+
+    articles: {
+      cards: [
+        {
+          header: 'Cooking',
+          title: 'The Joy of Cooking',
+          description:
+            'Cooking is a creative outlet that can bring people together...',
+          button: 'Learn more',
+          footer: 'Photo by Brooke Lark on Unsplash',
+        },
+        {
+          header: 'Travel',
+          title: 'The Benefits of Traveling',
+          description:
+            'Traveling broadens your perspective and creates memories...',
+          button: 'Explore',
+          footer: 'Photo by Sime Basioli on Unsplash',
+        },
+      ],
+    },
+
+    propositions: {
+      title: 'Proposition',
+      items: [
+        {
+          header: 'Our approach',
+          title: 'Innovative Solutions for Your Business',
+          description:
+            'We create effective solutions that cater to your business needs.',
+        },
+        {
+          header: 'Our expertise',
+          title: 'Trusted and Experienced Professionals',
+          description:
+            'Our team of experts delivers tailored strategies for best results.',
+        },
+      ],
+    },
+
+    footer: {
+      title: 'Navigation',
+      links: [
+        { text: 'Home', href: 'https://github.com/', color: 'btn-link' },
+        {
+          text: 'Contacts',
+          href: 'https://www.google.com/',
+          color: 'btn-link',
+        },
+        { text: 'Help', href: 'https://www.youtube.com/', color: 'btn-link' },
+      ],
+      social: [
+        {
+          name: 'Facebook',
+          href: 'https://www.facebook.com/',
+          color: 'btn-outline-dark',
+        },
+        {
+          name: 'Twitter',
+          href: 'https://twitter.com/',
+          color: 'btn-outline-dark',
+        },
+        {
+          name: 'Instagram',
+          href: 'https://www.instagram.com/',
+          color: 'btn-outline-dark',
+        },
+      ],
+      partners: [
+        {
+          name: 'Acme Inc.',
+          href: 'https://www.acme.com/',
+          color: 'btn-outline-info',
+        },
+        {
+          name: 'Globex Corporation',
+          href: 'https://www.globex.com/',
+          color: 'btn-outline-info',
+        },
+        {
+          name: 'Stark Industries',
+          href: 'https://www.starkindustries.com/',
+          color: 'btn-outline-info',
+        },
+      ],
+    },
+  })
+})
+
 // ================================================================
 // Підключаємо роутер до бек-енду
 module.exports = router
