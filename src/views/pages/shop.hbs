@@ -1,0 +1,162 @@
+{{!< default }}
+
+<section>
+  {{#with navigation}}
+    <nav>
+      <div class='card shadow-sm'>
+        <ul class='nav'>
+
+          {{#each links}}
+            <li class='nav-item'>
+              <a href='{{href}}' class='nav-link {{class}}'>{{text}}</a>
+            </li>
+          {{/each}}
+
+        </ul>
+      </div>
+    </nav>
+  {{/with}}
+</section>
+
+<hr />
+
+<section>
+  {{#with news}}
+    <h1 class='text-center mb-5'>{{title}}</h1>
+
+    <div class='row g-4'>
+      {{#each items}}
+        <div class='col-4'>
+
+          <div class='card text-bg-secondary h-100 shadow-sm'>
+
+            <div class='card-header'>
+              <strong>
+                {{title}}
+                {{#each tags}}
+                  <span class='badge text-bg-{{color}} {{#if isRounded}}rounded-pill{{/if}} ms-2'>
+                    {{label}}
+                  </span>
+                {{/each}}
+              </strong>
+            </div>
+
+            <div class='card-body'>
+              <p>{{description}}</p>
+            </div>
+
+          </div>
+
+        </div>
+      {{/each}}
+    </div>
+  {{/with}}
+</section>
+
+<hr />
+
+<section>
+  {{#with products}}
+    <nav class="mb-5">
+      <ul class='nav nav-tabs'>
+        {{#each tabs}}
+
+          <li class='nav-item'>
+            <a class='nav-link {{#if active}}active{{/if}} {{#if disabled}}disabled{{/if}}' href='#'>
+            {{text}}
+            </a>
+          </li>
+
+        {{/each}}
+      </ul>
+    </nav>
+
+
+    <div class="row g-4">
+      {{#each items}}
+        <div class="col-5">
+          <div class="card h-100 shadow-sm">
+
+            <img class="d-block" src="{{image}}" alt="{{alternative}}">
+
+            <div class="card-body">
+
+              <strong>
+                {{title}}
+
+                {{#each badges}}
+                  <span class="badge text-bg-{{color}} {{#if isRounded}}rounded-pill{{/if}}">{{label}}</span>
+                {{/each}}
+              </strong>
+              <p>{{description}}</p>
+
+            </div>
+
+          </div>
+        </div>
+      {{/each}}
+    </div>
+
+  {{/with}}
+</section>
+
+<hr>
+
+<section>
+  {{#with subscribe}}
+    <div class="card  text-bg-secondary">
+      <div class="card-body">
+        <h2>{{title}}</h2>
+        <p>{{description}}</p>
+        <div class="d-flex flex-column align-items-start gap-2">
+          {{#each actions}}
+            <a class="btn {{color}}" href="{{href}}">
+              {{text}}
+            </a>
+          {{/each}}
+        </div>
+      </div>
+    </div>
+  {{/with}}
+</section>
+
+<hr>
+
+<section>
+  {{#with services}}
+    <div class="card  text-bg-success">
+      <div class="card-body text-center">
+        <h2>{{title}}</h2>
+        <p>{{description}}</p>
+        {{#each actions}}
+          <a class="btn {{color}}" href="{{href}}">{{text}}</a>
+        {{/each}}
+      </div>
+    </div>
+  {{/with}}
+</section>
+
+<hr>
+
+<section>
+  {{#with footer}}
+  <div class="row">
+
+      <nav>
+        <ul class="nav">
+          {{#each columns}}
+
+            <li class="nav-item col-3">
+              {{#each items}}
+                <a class="nav-link" href="{{href}}">{{text}}</a>
+              {{/each}}
+            </li>
+
+
+          {{/each}}
+        </ul>
+      </nav>
+
+    </div>
+  {{/with}}
+</section>

@@ -1353,5 +1353,213 @@ router.get('/overview', (req, res) => {
 })
 
 // ================================================================
+// SHOP PAGE
+// ================================================================
+
+router.get('/shop', (req, res) => {
+  res.render('shop', {
+    // ---------------- NAVIGATION ----------------
+    navigation: {
+      links: [
+        { text: 'Home', href: 'https://github.com/' },
+        { text: 'Contacts', href: 'https://www.google.com/' },
+        {
+          text: 'Help',
+          href: 'https://www.youtube.com/',
+          class: 'nav-link is-disabled',
+        },
+      ],
+    },
+
+    // ---------------- NEWS ----------------
+    news: {
+      title: 'Latest News',
+      items: [
+        {
+          title: 'COVID-19 Vaccinations Begin in Europe',
+          description:
+            'As the world continues to grapple with the ongoing COVID-19 pandemic...',
+
+          tags: [],
+        },
+
+        {
+          title: 'Tesla Stock Surges After Record Sales',
+          description:
+            "Tesla's stock price jumps 10% following the company's announcement...",
+
+          tags: [
+            {
+              label: 'top',
+              color: 'success',
+              isRounded: true,
+            },
+            {
+              label: 'new',
+              color: 'danger',
+              isRounded: true,
+            },
+          ],
+        },
+
+        {
+          title: 'New Study Shows Benefits of Meditation for Mental Health',
+          description:
+            'A new study published in the Journal of the American Medical Association...',
+
+          tags: [],
+        },
+
+        {
+          title: 'NASA Launches New Mars Rover',
+          description:
+            "NASA's Perseverance rover successfully launches on a mission...",
+
+          tags: [
+            {
+              label: 'new',
+              color: 'danger',
+              isRounded: true,
+            },
+          ],
+        },
+
+        {
+          title: 'UK Announces Plan to Ban Sale of Gas-Powered Cars by 2030',
+          description:
+            'In an effort to combat climate change, the UK government announces...',
+
+          tags: [
+            {
+              label: 'top',
+              color: 'success',
+              isRounded: true,
+            },
+          ],
+        },
+      ],
+    },
+
+    // ---------------- PRODUCTS ----------------
+    products: {
+      tabs: [
+        { text: 'Electronics', active: true },
+        { text: 'Home & Kitchen' },
+        { text: 'Clothing & Accessories' },
+        { text: 'Toys & Games', disabled: true },
+      ],
+      items: [
+        {
+          image: 'https://picsum.photos/400/200',
+          alternative: 'iPhone 13',
+          title: 'iPhone 13',
+          description:
+            'The latest iPhone model features a new A15 Bionic chip...',
+          badges: [],
+        },
+        {
+          image: 'https://picsum.photos/400/200',
+          alternative: 'MacBook Pro',
+          title: 'MacBook Pro',
+          description:
+            "Apple's high-end laptop features a 16-inch Retina display...",
+          badges: [
+            {
+              label: 'hot',
+              color: 'primary',
+              isRounded: true,
+            },
+          ],
+        },
+        {
+          image: 'https://picsum.photos/400/200',
+          alternative: 'Bose SoundLink Revolve+',
+          title: 'Bose SoundLink Revolve+',
+          description:
+            'This portable Bluetooth speaker features 360-degree sound...',
+          badges: [
+            {
+              label: 'hot',
+              color: 'warning',
+              isRounded: true,
+            },
+
+            {
+              label: 'new',
+              color: 'primary',
+              isRounded: true,
+            },
+          ],
+        },
+      ],
+    },
+
+    // ---------------- SUBSCRIBE ----------------
+    subscribe: {
+      title: 'Unlock Premium Content',
+      description: 'Subscribe to access exclusive content and features.',
+      actions: [
+        {
+          text: 'Register Now',
+          href: 'https://www.youtube.com/',
+          color: 'btn-primary',
+        },
+        {
+          text: 'Buy Subscription',
+          href: 'https://www.youtube.com/',
+          color: 'btn-primary',
+        },
+      ],
+    },
+
+    // ---------------- SERVICES ----------------
+    services: {
+      title: 'Our Services',
+      description: 'We offer a variety of services to meet your needs...',
+      actions: [
+        {
+          text: 'Show More',
+          href: 'https://www.youtube.com/',
+          color: 'btn-primary',
+        },
+      ],
+    },
+
+    // ---------------- FOOTER ----------------
+    footer: {
+      columns: [
+        {
+          items: [
+            { text: 'Home', href: 'https://www.youtube.com/' },
+            { text: 'Trending', href: 'https://www.youtube.com/feed/trending' },
+            {
+              text: 'Subscriptions',
+              href: 'https://www.youtube.com/feed/subscriptions',
+            },
+          ],
+        },
+        {
+          items: [
+            { text: 'History', href: 'https://www.youtube.com/feed/history' },
+            {
+              text: 'Your Videos',
+              href: 'https://www.youtube.com/feed/my_videos',
+            },
+            { text: 'Live', href: 'https://www.youtube.com/live' },
+          ],
+        },
+        {
+          items: [
+            { text: 'Music', href: 'https://www.youtube.com/music' },
+            { text: 'Gaming', href: 'https://www.youtube.com/gaming' },
+            { text: 'Learning', href: 'https://www.youtube.com/learning' },
+          ],
+        },
+      ],
+    },
+  })
+})
+
+// ================================================================
 // Підключаємо роутер до бек-енду
 module.exports = router

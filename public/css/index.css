@@ -17,3 +17,15 @@ nav {
 section {
   padding: 16px;
 }
+
+/* ===========================================
+   UI: disabled state
+   Blocks interaction and shows inactive style
+============================================ */
+
+.nav-link.is-disabled {
+  pointer-events: none;
+  opacity: 0.5;
+  cursor: default;
+  color: #6c757d;
+}
