@@ -1098,8 +1098,6 @@ router.get('/company', (req, res) => {
   })
 })
 
-// ================================================================
-
 // ----------------------------------------
 //  OVERVIEW
 // ----------------------------------------
@@ -1352,10 +1350,9 @@ router.get('/overview', (req, res) => {
   })
 })
 
-// ================================================================
+// ----------------------------------------
 // SHOP PAGE
-// ================================================================
-
+// ----------------------------------------
 router.get('/shop', (req, res) => {
   res.render('shop', {
     // ---------------- NAVIGATION ----------------
@@ -1553,6 +1550,310 @@ router.get('/shop', (req, res) => {
             { text: 'Music', href: 'https://www.youtube.com/music' },
             { text: 'Gaming', href: 'https://www.youtube.com/gaming' },
             { text: 'Learning', href: 'https://www.youtube.com/learning' },
+          ],
+        },
+      ],
+    },
+  })
+})
+
+// ----------------------------------------
+// CHECKOUT
+// ----------------------------------------
+router.get('/checkout', (req, res) => {
+  res.render('checkout', {
+    // ---------------- NAVIGATION ----------------
+    navigation: {
+      links: [
+        { text: 'Home', href: 'https://github.com/' },
+        { text: 'Contacts', href: 'https://www.google.com/' },
+        { text: 'Help', href: 'https://www.youtube.com/' },
+        {
+          text: 'Exit',
+          href: null,
+          class: 'is-disabled',
+        },
+      ],
+    },
+
+    // ---------------- PAGE HERO ----------------
+    hero: 'Оформлення замовлення',
+
+    // ---------------- CONTACTS ----------------
+    contacts: {
+      title: 'Контактні дані',
+
+      actions: [
+        { text: 'Я новий покупець', isPrimary: true },
+        { text: 'Я постійний покупець', isOutline: true },
+      ],
+
+      form: {
+        fields: {
+          surname: {
+            label: 'Прізвище',
+            placeholder: 'Іванов',
+            caption: 'Введіть прізвище',
+          },
+          name: {
+            label: 'Ім’я',
+            placeholder: 'Іван',
+            caption: 'Введіть імʼя',
+          },
+          phone: {
+            label: 'Мобільний телефон',
+            placeholder: '+38 (XXX) XXX XX XX',
+            caption: 'Введіть телефон',
+          },
+          email: {
+            label: 'Пошта',
+            placeholder: 'ivanivanov@ukr.net',
+            caption: 'Введіть пошту',
+          },
+        },
+
+        options: [
+          {
+            text: 'Отримувати інформацію про новинки',
+            isActive: false,
+          },
+          {
+            text: 'Отримувати інформацію про знижки',
+            isActive: true,
+          },
+        ],
+      },
+    },
+
+    // ---------------- QUICK ACTIONS ----------------
+    actions: [
+      { text: 'Швидке замовлення', isSuccess: true },
+      { text: 'Видалити', isDanger: true },
+      { text: 'Детальніше', isInfo: true },
+    ],
+
+    // ---------------- ORDER SUMMARY ----------------
+    summary: {
+      title: 'Всього',
+
+      items: [
+        { name: 'Ноут:', price: '25 000 ₴' },
+        { name: 'Мишка:', price: '25 000 ₴' },
+        { name: 'Клава:', price: '25 000 ₴' },
+      ],
+
+      info: [
+        { text: 'Всього товарів:', value: '75 000 ₴' },
+        { text: 'Купони:', value: 'Немає' },
+        { text: 'Доставка:', value: 'Безкоштовно' },
+      ],
+
+      total: {
+        text: 'Всього товарів',
+        value: '75 000 ₴',
+      },
+
+      actions: [
+        { text: 'Підтвердити замовлення', isPrimary: true },
+        { text: 'Відмінити купони', isOutline: true },
+      ],
+    },
+
+    // ---------------- DELIVERY ----------------
+    delivery: {
+      title: 'Доставка',
+
+      selects: [
+        {
+          label: 'Місто доставки',
+          placeholder: 'Оберіть місто доставки',
+          options: [
+            { value: '1', text: 'Київ' },
+            { value: '2', text: 'Харків' },
+            { value: '3', text: 'Одеса' },
+            { value: '4', text: 'Львів' },
+            { value: '5', text: 'Дніпро' },
+            { value: '6', text: 'Донецьк' },
+          ],
+        },
+        {
+          label: 'Район доставки',
+          placeholder: 'Оберіть район доставки',
+          options: [
+            { value: '1', text: 'Голосіївський' },
+            { value: '2', text: 'Оболонський' },
+            { value: '3', text: 'Печерський' },
+            { value: '4', text: 'Дарницький' },
+            { value: '5', text: 'Деснянський' },
+            { value: '6', text: 'Подільський' },
+          ],
+        },
+      ],
+
+      methods: [
+        { type: 'Самовивіз з відділення Нової пошти' },
+        { type: 'Кур’єром Нової пошти' },
+        { type: 'Самовивіз з магазину' },
+        { type: 'Доставка закордон' },
+      ],
+
+      payment: {
+        title: 'Оплата',
+        options: [
+          {
+            type: 'Оплата при отриманні',
+            description: 'За тарифами перевізника',
+          },
+          { type: 'Оплатити зараз' },
+        ],
+      },
+
+      recipient: {
+        title: 'Контактні дані отримувача',
+
+        fields: {
+          surname: {
+            label: 'Прізвище',
+            placeholder: 'Іванов',
+            caption: 'Введіть прізвище',
+          },
+          name: {
+            label: 'Ім’я',
+            placeholder: 'Іван',
+            caption: 'Введіть імʼя',
+          },
+          phone: {
+            label: 'Мобільний телефон',
+            placeholder: '+38 (XXX) XXX XX XX',
+            caption: 'Введіть телефон',
+          },
+          email: {
+            label: 'Пошта',
+            placeholder: 'ivanivanov@ukr.net',
+            caption: 'Введіть пошту',
+          },
+        },
+
+        comment: {
+          label: 'Коментар',
+          placeholder: 'Я хочу, щоб...',
+        },
+      },
+    },
+
+    // ---------------- COUPONS ----------------
+    coupons: {
+      title: 'Купони',
+
+      selects: {
+        available: {
+          label: 'Наявні купони',
+          placeholder: 'Виберіть купон',
+          options: [
+            { value: '1', text: 'SEEYALATER' },
+            { value: '2', text: 'HOTEL10' },
+            { value: '3', text: 'DOWNLOAD25' },
+          ],
+        },
+        friends: {
+          label: 'Купони за запрошених друзів',
+          placeholder: 'Виберіть купон',
+          options: [
+            { value: '1', text: 'TRAVEL5' },
+            { value: '2', text: '75VACA' },
+            { value: '3', text: '150VACA' },
+          ],
+        },
+      },
+
+      invite: {
+        friends: {
+          label: 'Запросіть друзів та отримайте ще купонів',
+          placeholder: 'Введіть контактні дані друзів через ;',
+          caption: 'Напишіть електронні адреси / телефони друзів через “;”',
+        },
+        colleagues: {
+          label: 'Запросити колег',
+          placeholder: 'Введіть контактні дані колег через ;',
+          caption: 'Напишіть електронні адреси / телефони колег через “;”',
+        },
+      },
+    },
+
+    // ---------------- QUIZ ----------------
+    quiz: {
+      title: 'Допоможи краще нам тебе зрозуміти',
+
+      preference: {
+        title: 'Який тип обладнання ви зацікавлені в придбанні?',
+        options: ['Смартфони', 'Ноутбуки', 'Планшети', 'ПК', 'Телевізори'],
+      },
+
+      experience: {
+        label: 'Який у Вас досвід користування ПК',
+      },
+
+      frequency: {
+        label: 'Як часто ви купуєте обладнання?',
+        placeholder: 'Оберіть варіант',
+        options: [
+          { value: '1', text: 'Раз в тиждень' },
+          { value: '2', text: 'Раз в місяць' },
+          { value: '3', text: 'Раз в рік' },
+        ],
+      },
+
+      factors: {
+        title: 'Які фактори для вас важливі при купівлі обладнання?',
+        options: [
+          'Ціна',
+          'Репутація бренду',
+          'Якість',
+          'Особливості',
+          'Гарантія',
+          'Доступність',
+          'Обслуговування клієнтів',
+        ],
+      },
+    },
+
+    // ---------------- FOOTER ----------------
+    footer: {
+      columns: [
+        {
+          items: [
+            { text: 'Home', href: 'https://www.youtube.com/' },
+            { text: 'Trending', href: 'https://www.youtube.com/feed/trending' },
+            {
+              text: 'Subscriptions',
+              href: 'https://www.youtube.com/feed/subscriptions',
+            },
+            { text: 'Library', href: 'https://www.youtube.com/feed/library' },
+          ],
+        },
+        {
+          items: [
+            { text: 'History', href: 'https://www.youtube.com/feed/history' },
+            {
+              text: 'Your Videos',
+              href: 'https://www.youtube.com/feed/my_videos',
+            },
+            { text: 'Live', href: 'https://www.youtube.com/live' },
+            { text: 'Settings', href: 'https://www.youtube.com/account' },
+          ],
+        },
+        {
+          items: [
+            {
+              text: 'Watch Later',
+              href: 'https://www.youtube.com/playlist?list=WL',
+            },
+            {
+              text: 'Liked Videos',
+              href: 'https://www.youtube.com/playlist?list=LL',
+            },
+            { text: 'Music', href: 'https://www.youtube.com/music' },
+            { text: 'Gaming', href: 'https://www.youtube.com/gaming' },
           ],
         },
       ],
