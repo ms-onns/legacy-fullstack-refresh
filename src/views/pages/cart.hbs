@@ -1,0 +1,224 @@
+{{!< default }}
+
+<div class="row p-5">
+  <div class="col-12">
+
+    {{! ============================================= }}
+    {{! NAVIGATION                                    }}
+    {{! ============================================= }}
+    {{#with navigation}}
+      <nav class="card shadow-sm mb-5">
+        <ul class="nav">
+          {{#each links}}
+            <li class="nav-item">
+              <a
+                class="nav-link {{class}}"
+                href="{{href}}"
+                {{#unless href}}aria-disabled="true" tabindex="-1"{{/unless}}
+              >
+                {{text}}
+              </a>
+            </li>
+          {{/each}}
+        </ul>
+      </nav>
+    {{/with}}
+
+    {{! ============================================= }}
+    {{! HERO                                          }}
+    {{! ============================================= }}
+    {{#with hero}}
+      <section>
+        <h1 class="mb-3">{{title}}</h1>
+        <a class="btn {{button.color}}" href="{{button.link}}">
+          {{button.text}}
+        </a>
+      </section>
+    {{/with}}
+
+    <hr class="my-5" />
+
+    {{! ============================================= }}
+    {{! CART GOODS                                    }}
+    {{! ============================================= }}
+    {{#each goodsBlock}}
+      <div class="card mb-3">
+        <div class="card-body">
+
+          <div class="row align-items-center">
+
+            {{!-- IMAGE --}}
+            <div class="col-2">
+              <img
+                src="{{image}}"
+                alt="{{name}}"
+                class="img-fluid rounded"
+              >
+            </div>
+
+            {{!-- TITLE + DESCRIPTION --}}
+            <div class="col-5">
+              <h5 class="mb-1">{{name}}</h5>
+              <p class="text-muted mb-0">
+                {{description}}
+              </p>
+            </div>
+
+            {{!-- PRICE --}}
+            <div class="col-2">
+              <div class="text-muted ms-4">
+                {{price.title}}
+              </div>
+              <div class="fw-semibold ms-4">
+                {{price.value}}
+              </div>
+            </div>
+
+            {{!-- AMOUNT --}}
+            <div class="col-1">
+              <div class="fw-bold">
+                {{amount}}
+              </div>
+            </div>
+
+            {{!-- ACTION BUTTONS --}}
+            <div class="col-2 d-flex flex-column gap-2">
+              {{#each buttons}}
+                <button
+                  class="btn
+                    {{#if isPrimary}}btn-primary{{/if}}
+                    {{#if isDanger}}btn-danger{{/if}}
+                  "
+                >
+                  {{text}}
+                </button>
+              {{/each}}
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    {{/each}}
+
+    <hr class="my-5" />
+
+    {{! ============================================= }}
+    {{! ORDER TOTAL                                   }}
+    {{! ============================================= }}
+    {{#with total}}
+      <section>
+        <h2>{{title}}</h2>
+        <strong class="fs-2">{{amount}}</strong>
+        <p class="mt-2 mb-4">{{delivery}}</p>
+
+        {{#each buttons}}
+          <div class="mb-2">
+            <a
+              class="btn
+                {{#if isSuccess}}btn-success{{/if}}
+                {{#if isOutline}}btn-outline-success{{/if}}
+              "
+              href="{{link}}"
+            >
+              {{text}}
+            </a>
+          </div>
+        {{/each}}
+      </section>
+    {{/with}}
+
+    <hr class="my-5" />
+
+    {{! ============================================= }}
+    {{! OTHER PRODUCTS                                }}
+    {{! ============================================= }}
+    {{#with goodsOtherBlock}}
+      <h2 class="text-center mb-4">{{title}}</h2>
+
+      <div class="row g-4">
+        {{#each cards}}
+          <div class="col-6">
+            <div class="card h-100">
+
+              <img
+                class="card-img-top rounded"
+                src="{{image}}"
+                alt="{{title}}"
+              >
+
+              <div class="card-body">
+
+                {{!-- TITLE + BADGES --}}
+                <div class="d-flex align-items-center gap-2 mb-2">
+                  <h5 class="mb-0">{{title}}</h5>
+
+                  {{#if isHot}}
+                    <span class="badge bg-danger rounded-pill">HOT</span>
+                  {{/if}}
+
+                  {{#if isNew}}
+                    <span class="badge bg-primary rounded-pill">NEW</span>
+                  {{/if}}
+                </div>
+
+                <p class="card-text">
+                  {{description}}
+                </p>
+
+              </div>
+            </div>
+          </div>
+        {{/each}}
+      </div>
+    {{/with}}
+
+    <hr class="my-5" />
+
+    {{! ============================================= }}
+    {{! SUBSCRIBE                                     }}
+    {{! ============================================= }}
+    {{#with subscribe}}
+      <section class="card text-bg-dark">
+        <div class="card-body">
+          <h3>{{title}}</h3>
+          <p class="my-3">{{description}}</p>
+
+          {{#each buttons}}
+            <div>
+              <a class="btn {{color}} mb-2" href="{{link}}">
+                {{text}}
+              </a>
+            </div>
+          {{/each}}
+        </div>
+      </section>
+    {{/with}}
+
+    <hr class="my-5" />
+
+    {{! ============================================= }}
+    {{! FOOTER                                        }}
+    {{! ============================================= }}
+    {{#with footer}}
+      <nav>
+        <ul class="nav">
+          {{#each columns}}
+            <li class="nav-item me-5">
+              {{#each items}}
+                <a
+                  class="nav-link {{#if @last}}disabled{{/if}}"
+                  href="{{href}}"
+                  {{#if @last}}aria-disabled="true" tabindex="-1"{{/if}}
+                >
+                  {{text}}
+                </a>
+              {{/each}}
+            </li>
+          {{/each}}
+        </ul>
+      </nav>
+    {{/with}}
+
+  </div>
+</div>

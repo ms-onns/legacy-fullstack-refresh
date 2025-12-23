@@ -1862,5 +1862,166 @@ router.get('/checkout', (req, res) => {
 })
 
 // ================================================================
+// CART PAGE
+// ================================================================
+router.get('/cart', function (req, res) {
+  res.render('cart', {
+    // ---------------- NAVIGATION ----------------
+    navigation: {
+      links: [
+        { text: 'Home', href: 'https://github.com/' },
+        { text: 'Contacts', href: 'https://www.google.com/' },
+        { text: 'Help', href: 'https://www.youtube.com/' },
+        {
+          text: 'Exit',
+          href: null,
+          class: 'is-disabled',
+        },
+      ],
+    },
+
+    // ---------------- PAGE HERO ----------------
+    hero: {
+      title: 'Кошик',
+      button: {
+        text: 'Продовжити покупки',
+        link: 'https://www.youtube.com/',
+        color: 'btn-outline-dark',
+      },
+    },
+
+    // ---------------- CART GOODS ----------------
+    goodsBlock: [
+      {
+        image: 'https://picsum.photos/110/110',
+        name: 'Samsung Galaxy S21 Ultra',
+        description:
+          'екран 6.8", процесор Exynos 2100/Snapdragon 888, 12 ГБ ОЗУ, камера 108 МП, акумулятор 5000 мАг',
+        price: { title: 'Ціна:', value: '25 000 ₴' },
+        amount: '1 шт.',
+        buttons: [
+          { text: 'Додати', isPrimary: true },
+          { text: 'Видалити', isDanger: true },
+        ],
+      },
+
+      {
+        image: 'https://picsum.photos/110/110',
+        name: 'Ноутбук Dell XPS 13',
+        description:
+          'екран 13.3", процесор Intel Core i7-1165G7, 16 ГБ ОЗУ, SSD 512 ГБ, вага 1.2 кг',
+        price: { title: 'Ціна:', value: '25 000 ₴' },
+        amount: '1 шт.',
+        buttons: [
+          { text: 'Додати', isPrimary: true },
+          { text: 'Видалити', isDanger: true },
+        ],
+      },
+    ],
+
+    // ---------------- TOTAL ----------------
+    total: {
+      title: 'Сума замовлення',
+      amount: '75 000 ₴',
+      delivery: 'Без доставки',
+      buttons: [
+        {
+          text: 'Оформити замовлення',
+          link: 'https://www.youtube.com/',
+          isSuccess: true,
+        },
+        {
+          text: 'Оформити кредит',
+          link: 'https://www.youtube.com/',
+          isOutline: true,
+        },
+      ],
+    },
+
+    // ---------------- OTHER GOODS ----------------
+    goodsOtherBlock: {
+      title: 'See other products',
+      cards: [
+        {
+          image: 'https://picsum.photos/400/200',
+          title: 'MacBook Pro',
+          description: '16" Retina, M1 Pro / M1 Max, до 64GB RAM',
+          isHot: true,
+          isNew: true,
+        },
+
+        {
+          image: 'https://picsum.photos/400/200',
+          title: 'MacBook Air M2',
+          description: '13.6" Retina, M2 chip, 8GB RAM, 256GB SSD',
+          isHot: false,
+          isNew: true,
+        },
+      ],
+    },
+
+    // ---------------- SUBSCRIBE ----------------
+    subscribe: {
+      title: 'Unlock Premium Content',
+      description: 'Subscribe to access exclusive content and features.',
+      buttons: [
+        {
+          text: 'Register Now',
+          color: 'btn-primary',
+          link: 'https://www.youtube.com/',
+        },
+        {
+          text: 'Buy Subscription',
+          color: 'btn-primary',
+          link: 'https://www.youtube.com/',
+        },
+      ],
+    },
+
+    // ---------------- FOOTER ----------------
+    footer: {
+      columns: [
+        {
+          items: [
+            { text: 'Home', href: 'https://www.youtube.com/' },
+            { text: 'Trending', href: 'https://www.youtube.com/feed/trending' },
+            {
+              text: 'Subscriptions',
+              href: 'https://www.youtube.com/feed/subscriptions',
+            },
+            { text: 'Library', href: 'https://www.youtube.com/feed/library' },
+          ],
+        },
+        {
+          items: [
+            { text: 'History', href: 'https://www.youtube.com/feed/history' },
+            {
+              text: 'Your Videos',
+              href: 'https://www.youtube.com/feed/my_videos',
+            },
+            { text: 'Live', href: 'https://www.youtube.com/live' },
+            { text: 'Settings', href: 'https://www.youtube.com/account' },
+          ],
+        },
+        {
+          items: [
+            {
+              text: 'Watch Later',
+              href: 'https://www.youtube.com/playlist?list=WL',
+            },
+            {
+              text: 'Liked Videos',
+              href: 'https://www.youtube.com/playlist?list=LL',
+            },
+            { text: 'Music', href: 'https://www.youtube.com/music' },
+            { text: 'Gaming', href: 'https://www.youtube.com/gaming' },
+          ],
+        },
+      ],
+    },
+  })
+})
+
+// ================================================================
 // Підключаємо роутер до бек-енду
 module.exports = router
