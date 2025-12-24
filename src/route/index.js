@@ -2023,5 +2023,192 @@ router.get('/cart', function (req, res) {
 })
 
 // ================================================================
+// PRODUCT REVIEWS PAGE
+// ================================================================
+router.get('/product-reviews', (req, res) => {
+  res.render('product-reviews', {
+    // ---------------- NAVIGATION ----------------
+    navigation: {
+      links: [
+        { text: 'Home', href: 'https://github.com/' },
+        { text: 'Contacts', href: 'https://www.google.com/' },
+        { text: 'Help', href: 'https://www.youtube.com/' },
+        {
+          text: 'Exit',
+          href: null,
+          class: 'is-disabled',
+        },
+      ],
+    },
+
+    // ---------------- PAGE HEADER ----------------
+    page: {
+      title: 'Відгуки покупців про ноутбук',
+      rating: {
+        label: 'Оцінка',
+        value: '4.5/5',
+      },
+    },
+
+    // ---------------- TABS & ACTIONS ----------------
+    actions: {
+      tabs: [
+        { text: 'Про товар' },
+        { text: 'Характеристики' },
+        { text: 'Відгуки', isActive: true },
+      ],
+      reviewCta: {
+        title: 'Залиште відгук про товар',
+        button: {
+          text: 'Написати відгук',
+          link: 'https://www.youtube.com/',
+          variant: 'btn-secondary',
+        },
+      },
+    },
+
+    // ---------------- FEEDBACK FILTER ----------------
+    feedback: {
+      title: 'Хочете поділитись своєю думкою про наш магазин?',
+      buttons: [
+        {
+          text: 'Додати відгук',
+          variant: 'btn-warning',
+          link: 'https://www.youtube.com/',
+        },
+        {
+          text: 'Позитивні відгуки',
+          variant: 'btn-success',
+          link: 'https://www.youtube.com/',
+        },
+        {
+          text: 'Негативні відгуки',
+          variant: 'btn-danger',
+          link: 'https://www.youtube.com/',
+        },
+      ],
+    },
+
+    // ---------------- PRODUCT INFO ----------------
+    product: {
+      image: 'https://picsum.photos/110/100',
+      name: 'Ноутбук Asus',
+      price: '25 000 ₴',
+      inStock: true,
+      actions: [
+        {
+          text: 'Купити',
+          variant: 'btn-primary',
+          link: 'https://www.youtube.com/',
+        },
+        {
+          text: 'Купити в кредит',
+          variant: 'btn-secondary',
+          link: 'https://www.youtube.com/',
+        },
+      ],
+      seller: {
+        label: 'Продавець',
+        name: 'Machinery',
+      },
+    },
+
+    // ---------------- REVIEWS ----------------
+    reviews: [
+      {
+        author: 'Іван Іванов',
+        role: 'Відгук покупця',
+        date: '1 січня 2023',
+        rating: '5/5',
+        label: 'Продавець',
+        seller: 'Machinery',
+        content: [
+          'Цей ноутбук має гарний дизайн та добре виконує свої основні функції.',
+          'Можливі проблеми з перегрівом та ємністю жорсткого диска.',
+        ],
+        pros: 'Дизайн, швидкість роботи, акумулятор',
+        cons: 'Перегрів, ємність диску',
+        images: [
+          'https://picsum.photos/110/100',
+          'https://picsum.photos/110/100',
+          'https://picsum.photos/110/100',
+        ],
+        comments: [
+          {
+            user: 'Користувач',
+            date: '1 січня 2023',
+            text: 'Дякую за відгук!',
+          },
+          {
+            user: 'Користувач',
+            date: '3 січня 2023',
+            text: 'Допомогло зробити вибір.',
+          },
+        ],
+      },
+
+      {
+        author: 'Петро Петров',
+        role: 'Відгук покупця',
+        date: '1 січня 2023',
+        rating: '5/5',
+        label: 'Продавець',
+        seller: 'Machinery',
+        content: ['Гарний дизайн і хороша продуктивність.'],
+        pros: 'Акумулятор',
+        cons: 'Не виявлено',
+        images: ['https://picsum.photos/110/100'],
+        comments: [
+          {
+            user: 'Користувач',
+            date: '1 січня 2023',
+            text: 'Корисно, дякую!',
+          },
+        ],
+      },
+    ],
+
+    // ---------------- SERVICES ----------------
+    services: {
+      title: 'Our Services',
+      description: 'We offer a variety of services to meet your needs.',
+      button: {
+        variant: 'btn-primary',
+        text: 'Show More',
+        link: 'https://www.youtube.com/',
+      },
+    },
+
+    // ---------------- FOOTER ----------------
+    footer: {
+      columns: [
+        {
+          items: [
+            { text: 'Home', href: 'https://www.youtube.com/' },
+            { text: 'Trending', href: 'https://www.youtube.com/feed/trending' },
+            {
+              text: 'Subscriptions',
+              href: 'https://www.youtube.com/feed/subscriptions',
+            },
+            { text: 'Library', href: 'https://www.youtube.com/feed/library' },
+          ],
+        },
+        {
+          items: [
+            { text: 'History', href: 'https://www.youtube.com/feed/history' },
+            {
+              text: 'Your Videos',
+              href: 'https://www.youtube.com/feed/my_videos',
+            },
+            { text: 'Live', href: 'https://www.youtube.com/live' },
+            { text: 'Settings', href: 'https://www.youtube.com/account' },
+          ],
+        },
+      ],
+    },
+  })
+})
+
+// ================================================================
 // Підключаємо роутер до бек-енду
 module.exports = router
