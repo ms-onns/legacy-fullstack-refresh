@@ -38,7 +38,39 @@ const footer = {
 //  INDEX PAGE
 // ----------------------------------------
 router.get('/', (req, res) => {
-  res.render('index', {})
+  res.render('index', {
+    demoPages: {
+      basic: [
+        { title: 'Bio', href: '/bio' },
+        { title: 'Car', href: '/car' },
+        { title: 'Mac', href: '/mac' },
+        { title: 'Web', href: '/web' },
+        { title: 'JS', href: '/js' },
+        { title: 'Program', href: '/program' },
+
+        { title: 'Education', href: '/education' },
+        { title: 'Skills', href: '/skills' },
+        { title: 'Summary', href: '/summary' },
+        { title: 'Work', href: '/work' },
+        { title: 'Person', href: '/person' },
+        { title: 'Facebook', href: '/facebook' },
+
+        // якщо index окремим шляхом:
+        { title: 'Index', href: '/' },
+      ],
+
+      bootstrap: [
+        { title: 'Bootstrap UI', href: '/bootstrap' },
+        { title: 'Company', href: '/company' },
+        { title: 'Overview', href: '/overview' },
+        { title: 'Content', href: '/content' },
+        { title: 'Shop', href: '/shop' },
+        { title: 'Cart', href: '/cart' },
+        { title: 'Checkout', href: '/checkout' },
+        { title: 'Product Reviews', href: '/product-reviews' },
+      ],
+    },
+  })
 })
 
 // ----------------------------------------
