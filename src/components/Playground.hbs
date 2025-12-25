@@ -1,0 +1,40 @@
+<div>
+{{! ================= PLAYGROUND ================= }}
+{{#with demoPages}}
+  <div class='dropdown'>
+
+    <button
+      class='btn btn-outline-secondary dropdown-toggle'
+      type='button'
+      data-bs-toggle='dropdown'
+      aria-expanded='false'
+    >
+      Playground
+    </button>
+
+    <ul class='dropdown-menu'>
+
+      {{! BASIC PAGES (HTML) }}
+      {{#each basic}}
+        <li>
+          <a class='dropdown-item' href='{{href}}'>
+            {{title}}
+          </a>
+        </li>
+      {{/each}}
+
+      <li><hr class='dropdown-divider' /></li>
+
+      {{! BOOTSTRAP PAGES }}
+      {{#each bootstrap}}
+        <li>
+          <a class='dropdown-item' href='{{href}}'>
+            {{title}}
+          </a>
+        </li>
+      {{/each}}
+
+    </ul>
+
+  </div>
+{{/with}}
