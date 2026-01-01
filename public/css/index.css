@@ -29,3 +29,18 @@ section {
   cursor: default;
   color: #6c757d;
 }
+
+/* ================= RESUME STYLES ================= */
+
+.profile-photo {
+  max-width: 200px;
+  margin: 0 auto;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}

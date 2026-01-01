@@ -39,6 +39,10 @@ const footer = {
 // ----------------------------------------
 router.get('/', (req, res) => {
   res.render('index', {
+    page: {
+      title: 'Resume | Max Sheyn',
+    },
+
     demoPages: {
       basic: [
         { title: 'Bio', href: '/bio' },
@@ -70,6 +74,44 @@ router.get('/', (req, res) => {
         { title: 'Product Reviews', href: '/product-reviews' },
       ],
     },
+
+    profile: {
+      name: 'Max Sheyn',
+      position: 'Junior Frontend / Fullstack Developer',
+      location: 'Ukraine · Remote',
+      photo: '/img/profile.jpg',
+    },
+
+    contacts: {
+      email: {
+        text: 'max@mail.com',
+        href: 'mailto:max@mail.com',
+      },
+      phone: {
+        text: '+380 67 000 0000',
+        href: 'tel:+380670000000',
+      },
+      linkedin: {
+        text: 'LinkedIn',
+        href: '#',
+      },
+    },
+
+    summary: {
+      text: `Junior developer with solid understanding of HTML, CSS,
+      JavaScript and Bootstrap. Experience working with Handlebars,
+      Git and basic Node.js environment.`,
+    },
+
+    skills: [
+      'HTML5, semantic layout',
+      'CSS3, Bootstrap',
+      'JavaScript (basic)',
+      'Git / GitHub',
+      'Node.js (basic)',
+    ],
+
+    projects: ['Shopping Cart page', 'Checkout form', 'Product reviews page'],
   })
 })
 
