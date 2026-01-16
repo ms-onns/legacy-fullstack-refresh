@@ -4,76 +4,42 @@ const morgan = require('morgan')
 const cookieParser = require('cookie-parser')
 const createError = require('http-errors')
 const dotenv = require('dotenv')
+const handlebars = require('express-handlebars')
 
 dotenv.config()
 
 const app = express()
 
-// ================= HANDLBARS ==================
+// ================= HANDLEBARS ==================
+app.engine(
+  'hbs',
+  handlebars.engine({
+    extname: '.hbs',
+    defaultLayout: 'main',
+    layoutsDir: path.join(__dirname, 'src/views/layout'),
+    partialsDir: path.join(__dirname, 'src/components'),
+  }),
+)
 
-const handlebars = require('express-handlebars')
-const hbs = handlebars.create({
-  extname: 'hbs',
-  defaultLayout: 'default',
-  layoutsDir: path.join(__dirname, 'src/layout'),
-  partialsDir: path.join(__dirname, 'src/components'),
-  helpers: {
-    isObject: (value) => typeof value === 'object' && value !== null,
-    isArray: Array.isArray,
-    eq: (a, b) => a === b,
-    concat: (a, b) => `${a}${b}`,
-  },
-})
-
-app.engine('hbs', hbs.engine)
 app.set('view engine', 'hbs')
-app.set('views', path.join(__dirname, 'src/views/pages'))
+app.set('views', path.join(__dirname, 'src/views'))
 
-// =================================================
-
-// CORE MIDDLEWARE
+// ================= MIDDLEWARE ==================
 app.use(morgan('dev'))
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 app.use(cookieParser())
 
-// STATIC FILES
+// ================= STATIC ==================
 app.use(express.static(path.join(__dirname, 'public')))
 
-// LIVE RELOAD (DEV ONLY)
-if (process.env.NODE_ENV === 'development') {
-  const livereload = require('livereload')
-  const connectLiveReload = require('connect-livereload')
-
-  const liveReloadServer = livereload.createServer()
-  liveReloadServer.watch(path.join(__dirname, 'public'))
-
-  liveReloadServer.server.once('connection', () => {
-    setTimeout(() => liveReloadServer.refresh('/'), 100)
-  })
-
-  app.use(connectLiveReload())
-}
-
-// ROUTES
-const router = require('./src/route/index.js')
+// ================= ROUTES ==================
+const router = require('./src/route/index')
 app.use('/', router)
 
-// 404
-app.use((req, res, next) => {
-  next(createError(404, 'Page not found'))
-})
-
-// ERROR HANDLER
-app.use((err, req, res, next) => {
-  const isDev = req.app.get('env') === 'development'
-
-  res.status(err.status || 500)
-  res.render('error', {
-    message: err.message,
-    status: err.status,
-    error: isDev ? err : {},
-  })
+// ================= 404 ==================
+app.use((req, res) => {
+  res.status(404).send('404 Not Found')
 })
 
 module.exports = app
