@@ -38,7 +38,7 @@ const footer = {
 //  INDEX PAGE
 // ----------------------------------------
 router.get('/', (req, res) => {
-  res.render('index', {
+  res.render('pages/index', {
     page: {
       title: 'Resume | Max Sheyn',
     },
@@ -119,7 +119,7 @@ router.get('/', (req, res) => {
 //  SUMMARY
 // ----------------------------------------
 router.get('/summary', (req, res) => {
-  res.render('summary', {
+  res.render('pages/summary', {
     page: { title: 'Resume | Summary' },
     header,
     main: {
@@ -143,7 +143,7 @@ router.get('/summary', (req, res) => {
 //  SKILLS
 // ----------------------------------------
 router.get('/skills', (req, res) => {
-  res.render('skills', {
+  res.render('pages/skills', {
     page: { title: 'Resume | Skills' },
     header,
     main: {
@@ -169,7 +169,7 @@ router.get('/skills', (req, res) => {
 //  EDUCATION
 // ----------------------------------------
 router.get('/education', (req, res) => {
-  res.render('education', {
+  res.render('pages/education', {
     page: { title: 'Resume | Education' },
     header,
     main: {
@@ -191,7 +191,7 @@ router.get('/education', (req, res) => {
 //  WORK
 // ----------------------------------------
 router.get('/work', (req, res) => {
-  res.render('work', {
+  res.render('pages/work', {
     page: { title: 'Resume | Work' },
     header,
     main: {
@@ -245,7 +245,7 @@ router.get('/work', (req, res) => {
 //  PERSON
 // ----------------------------------------
 router.get('/person', function (req, res) {
-  res.render('person', {
+  res.render('pages/person', {
     page: { title: 'Person profile' },
 
     person: {
@@ -343,7 +343,7 @@ router.get('/person', function (req, res) {
 // BIO
 // ----------------------------------------
 router.get('/bio', function (req, res) {
-  res.render('bio', {
+  res.render('pages/bio', {
     page: { title: 'Biography' },
 
     bio: {
@@ -444,7 +444,7 @@ router.get('/bio', function (req, res) {
 //  PROGRAM
 // ----------------------------------------
 router.get('/program', function (req, res) {
-  res.render('program', {
+  res.render('pages/program', {
     program: {
       excursion: {
         name: 'Cultural Tour',
@@ -529,7 +529,7 @@ router.get('/program', function (req, res) {
 //  WEB
 // ----------------------------------------
 router.get('/web', function (req, res) {
-  res.render('web', {
+  res.render('pages/web', {
     web: {
       languages: [
         {
@@ -621,7 +621,7 @@ router.get('/web', function (req, res) {
 //  JAVASCRIPT
 // ----------------------------------------
 router.get('/js', function (req, res) {
-  res.render('js', {
+  res.render('pages/js', {
     name: 'JavaScript',
     description:
       'JavaScript is a popular high-level, dynamic, and interpreted programming language.',
@@ -686,7 +686,7 @@ router.get('/js', function (req, res) {
 //  CAR
 // ----------------------------------------
 router.get('/car', function (req, res) {
-  res.render('car', {
+  res.render('pages/car', {
     page: { title: 'Car details' },
 
     make: 'Toyota',
@@ -795,7 +795,7 @@ router.get('/car', function (req, res) {
 //  MAC
 // ----------------------------------------
 router.get('/mac', function (req, res) {
-  res.render('mac', {
+  res.render('pages/mac', {
     name: 'Apple MacBook Pro',
     description: 'The ultimate notebook for power users',
     price: 1999.99,
@@ -882,7 +882,7 @@ router.get('/mac', function (req, res) {
 //  FACEBOOK
 // ----------------------------------------
 router.get('/facebook', function (req, res) {
-  res.render('facebook', {
+  res.render('pages/facebook', {
     page: { title: 'Facebook demo' },
 
     name: 'Facebook',
@@ -1052,14 +1052,14 @@ router.get('/facebook', function (req, res) {
 //  BOOTSTRAP
 // ----------------------------------------
 router.get('/bootstrap', (req, res) => {
-  res.render('bootstrap', {})
+  res.render('pages/bootstrap', {})
 })
 
 // ----------------------------------------
 //  CONTENT
 // ----------------------------------------
 router.get('/content', (req, res) => {
-  res.render('content', {
+  res.render('pages/content', {
     // ---- HERO / MAIN SECTIONS ----
     sections: [
       {
@@ -1122,7 +1122,7 @@ router.get('/content', (req, res) => {
 //  COMPANY
 // ----------------------------------------
 router.get('/company', (req, res) => {
-  res.render('company', {
+  res.render('pages/company', {
     hero: {
       title: 'InnovaMind',
       description: 'Welcome to our wonderful community',
@@ -1176,7 +1176,7 @@ router.get('/company', (req, res) => {
 //  OVERVIEW
 // ----------------------------------------
 router.get('/overview', (req, res) => {
-  res.render('overview', {
+  res.render('pages/overview', {
     navigation: {
       links: [
         { text: 'Home', href: 'https://github.com/' },
@@ -1428,7 +1428,7 @@ router.get('/overview', (req, res) => {
 // SHOP PAGE
 // ----------------------------------------
 router.get('/shop', (req, res) => {
-  res.render('shop', {
+  res.render('pages/shop', {
     // ---------------- NAVIGATION ----------------
     navigation: {
       links: [
@@ -1635,7 +1635,7 @@ router.get('/shop', (req, res) => {
 // CHECKOUT
 // ----------------------------------------
 router.get('/checkout', (req, res) => {
-  res.render('checkout', {
+  res.render('pages/checkout', {
     // ---------------- NAVIGATION ----------------
     navigation: {
       links: [
@@ -1939,7 +1939,7 @@ router.get('/checkout', (req, res) => {
 // CART PAGE
 // ================================================================
 router.get('/cart', function (req, res) {
-  res.render('cart', {
+  res.render('pages/cart', {
     // ---------------- NAVIGATION ----------------
     navigation: {
       links: [
@@ -2100,7 +2100,7 @@ router.get('/cart', function (req, res) {
 // PRODUCT REVIEWS PAGE
 // ================================================================
 router.get('/product-reviews', (req, res) => {
-  res.render('product-reviews', {
+  res.render('pages/product-reviews', {
     // ---------------- NAVIGATION ----------------
     navigation: {
       links: [
