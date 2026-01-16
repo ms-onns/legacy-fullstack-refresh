@@ -1,20 +1,18 @@
-{{!< default }}
+<section style='padding: 32px; max-width: 600px;'>
 
-<section style="padding: 32px; max-width: 600px;">
-  
   <h1>Error {{status}}</h1>
   <hr />
 
   <p>{{message}}</p>
 
   {{#if error.stack}}
-    <details style="margin-top: 20px;">
+    <details style='margin-top: 20px;'>
       <summary>Details (stack trace)</summary>
       <pre>{{error.stack}}</pre>
     </details>
   {{/if}}
 
   <br />
-  <a href="/" style="font-weight: bold;">← Back to Home</a>
+  <a href='/' style='font-weight: bold;'>← Back to Home</a>
 
 </section>

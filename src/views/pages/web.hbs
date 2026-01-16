@@ -1,103 +1,102 @@
-{{!< default }}
-
 {{#with web}}
 
-<header>
-  <h1>Web Technology Reference Guide</h1>
-</header>
+  <header>
+    <h1>Web Technology Reference Guide</h1>
+  </header>
 
-<hr />
+  <hr />
 
-{{#each languages}}
-  <section>
+  {{#each languages}}
+    <section>
 
-    <h2>{{name}} ({{version}})</h2>
-    <p><strong>Description:</strong> {{description}}</p>
+      <h2>{{name}} ({{version}})</h2>
+      <p><strong>Description:</strong> {{description}}</p>
 
-    {{!-- ===================== HTML ELEMENTS ===================== --}}
-    {{#if elements}}
-      <article>
-        <h3>HTML Elements</h3>
+      {{! ===================== HTML ELEMENTS ===================== }}
+      {{#if elements}}
+        <article>
+          <h3>HTML Elements</h3>
 
-        <ul>
-          {{#each elements}}
-            <li>
-              <h4>Tag: <code>&lt;{{name}}&gt;</code></h4>
-              <p>{{description}}</p>
+          <ul>
+            {{#each elements}}
+              <li>
+                <h4>Tag: <code>&lt;{{name}}&gt;</code></h4>
+                <p>{{description}}</p>
 
-              {{#if attributes}}
-                <h5>Attributes</h5>
-                <dl>
-                  {{#each attributes}}
-                    <dt><strong>{{name}}:</strong></dt>
-                    <dd>{{description}}</dd>
-                  {{/each}}
-                </dl>
-              {{/if}}
-            </li>
-          {{/each}}
-        </ul>
-      </article>
-    {{/if}}
+                {{#if attributes}}
+                  <h5>Attributes</h5>
+                  <dl>
+                    {{#each attributes}}
+                      <dt><strong>{{name}}:</strong></dt>
+                      <dd>{{description}}</dd>
+                    {{/each}}
+                  </dl>
+                {{/if}}
+              </li>
+            {{/each}}
+          </ul>
+        </article>
+      {{/if}}
 
-    {{!-- ===================== CSS PROPERTIES ===================== --}}
-    {{#if properties}}
-      <article>
-        <h3>CSS Properties</h3>
+      {{! ===================== CSS PROPERTIES ===================== }}
+      {{#if properties}}
+        <article>
+          <h3>CSS Properties</h3>
 
-        <ul>
-          {{#each properties}}
-            <li>
-              <h4>Property: <code>{{name}}</code></h4>
-              <p>{{description}}</p>
+          <ul>
+            {{#each properties}}
+              <li>
+                <h4>Property: <code>{{name}}</code></h4>
+                <p>{{description}}</p>
 
-              {{#if values}}
-                <h5>Values</h5>
-                <dl>
-                  {{#each values}}
-                    <dt><strong>{{value}}:</strong></dt>
-                    <dd>{{description}}</dd>
-                  {{/each}}
-                </dl>
-              {{/if}}
-            </li>
-          {{/each}}
-        </ul>
-      </article>
-    {{/if}}
+                {{#if values}}
+                  <h5>Values</h5>
+                  <dl>
+                    {{#each values}}
+                      <dt><strong>{{value}}:</strong></dt>
+                      <dd>{{description}}</dd>
+                    {{/each}}
+                  </dl>
+                {{/if}}
+              </li>
+            {{/each}}
+          </ul>
+        </article>
+      {{/if}}
 
-    {{!-- ===================== JAVASCRIPT FUNCTIONS ===================== --}}
-    {{#if functions}}
-      <article>
-        <h3>JavaScript Functions</h3>
+      {{! ===================== JAVASCRIPT FUNCTIONS ===================== }}
+      {{#if functions}}
+        <article>
+          <h3>JavaScript Functions</h3>
 
-        <ul>
-          {{#each functions}}
-            <li>
-              <h4>Function: <code>{{name}}</code></h4>
-              <p>{{description}}</p>
+          <ul>
+            {{#each functions}}
+              <li>
+                <h4>Function: <code>{{name}}</code></h4>
+                <p>{{description}}</p>
 
-              {{#if parameters}}
-                <h5>Parameters</h5>
-                <dl>
-                  {{#each parameters}}
-                    <dt>
-                      <strong>{{name}}</strong>
-                      (Type: <code>{{type}}</code>)
-                    </dt>
-                    <dd>{{description}}</dd>
-                  {{/each}}
-                </dl>
-              {{/if}}
-            </li>
-          {{/each}}
-        </ul>
-      </article>
-    {{/if}}
+                {{#if parameters}}
+                  <h5>Parameters</h5>
+                  <dl>
+                    {{#each parameters}}
+                      <dt>
+                        <strong>{{name}}</strong>
+                        (Type:
+                        <code>{{type}}</code>)
+                      </dt>
+                      <dd>{{description}}</dd>
+                    {{/each}}
+                  </dl>
+                {{/if}}
+              </li>
+            {{/each}}
+          </ul>
+        </article>
+      {{/if}}
 
-  </section>
+    </section>
 
-  {{#unless @last}}<hr />{{/unless}}
-{{/each}}
+    {{#unless @last}}<hr />{{/unless}}
+  {{/each}}
 
 {{/with}}

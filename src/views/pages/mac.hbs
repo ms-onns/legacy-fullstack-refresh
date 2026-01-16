@@ -1,9 +1,7 @@
-{{!< default }}
-
 <article>
 
   <header>
-    <p class="category">{{category}}</p>
+    <p class='category'>{{category}}</p>
 
     <h1>{{name}}</h1>
 
@@ -70,7 +68,8 @@
         <ul>
           {{#each ports}}
             <li>
-              <strong>{{type}}</strong> (x{{count}})
+              <strong>{{type}}</strong>
+              (x{{count}})
               {{#if features}}
                 <ul>
                   {{#each features}}

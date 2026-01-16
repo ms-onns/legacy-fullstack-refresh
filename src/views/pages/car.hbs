@@ -1,5 +1,3 @@
-{{!< default }}
-
 <article>
 
   <header>
@@ -42,7 +40,8 @@
             <li>Size: {{dashboard.display.size}}</li>
             <li>Resolution: {{dashboard.display.resolution}}</li>
             <li>Touchscreen:
-              {{#if dashboard.display.touchscreen}}Available{{else}}Not available{{/if}}
+              {{#if dashboard.display.touchscreen}}Available{{else}}Not
+                available{{/if}}
             </li>
           </ul>
         </article>
@@ -66,7 +65,6 @@
 
       </section>
     {{/with}}
-
 
     {{! ---------- EXTERIOR ---------- }}
     {{#with exterior}}
@@ -107,7 +105,6 @@
       </section>
     {{/with}}
 
-
     {{! ---------- SAFETY ---------- }}
     {{#with safety}}
       <section>
@@ -127,16 +124,20 @@
           <h3>Assistance Systems</h3>
           <ul>
             <li>Blind spot monitoring:
-              {{#if assistance.blind_spot_monitoring}}Available{{else}}Not available{{/if}}
+              {{#if assistance.blind_spot_monitoring}}Available{{else}}Not
+                available{{/if}}
             </li>
             <li>Rear cross traffic alert:
-              {{#if assistance.rear_cross_traffic_alert}}Available{{else}}Not available{{/if}}
+              {{#if assistance.rear_cross_traffic_alert}}Available{{else}}Not
+                available{{/if}}
             </li>
             <li>Lane departure warning:
-              {{#if assistance.lane_departure_warning}}Available{{else}}Not available{{/if}}
+              {{#if assistance.lane_departure_warning}}Available{{else}}Not
+                available{{/if}}
             </li>
             <li>Adaptive cruise control:
-              {{#if assistance.adaptive_cruise_control}}Available{{else}}Not available{{/if}}
+              {{#if assistance.adaptive_cruise_control}}Available{{else}}Not
+                available{{/if}}
             </li>
             <li>Collision warning:
               {{#if assistance.collision_warning}}Available{{else}}Not available{{/if}}
@@ -148,7 +149,6 @@
     {{/with}}
 
   {{/with}}
-
 
   {{! ---------- ENGINE & FUEL ---------- }}
   <section>
@@ -183,7 +183,6 @@
     {{/with}}
 
   </section>
-
 
   {{! ---------- PRICE ---------- }}
   {{#with price}}
